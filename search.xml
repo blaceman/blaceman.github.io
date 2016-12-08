@@ -12,18 +12,29 @@
 <li>Hexo常见的用法</li>
 </ol>
 <h3 id="1-为mac电脑安装Hexo"><a href="#1-为mac电脑安装Hexo" class="headerlink" title="1.为mac电脑安装Hexo"></a>1.为mac电脑安装<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo</a></h3><h4 id="首先Hexo一款基于Node-js的静态博客框架，可以生成静态文件并且一键部署到github-pages上，并且他可以使用markdown来编写文章，十分简单。所以安装Hexo的前提必须是要安装Node-JS和Git而Node-JS的最佳安装方式是使用nvm-Node的管理工具"><a href="#首先Hexo一款基于Node-js的静态博客框架，可以生成静态文件并且一键部署到github-pages上，并且他可以使用markdown来编写文章，十分简单。所以安装Hexo的前提必须是要安装Node-JS和Git而Node-JS的最佳安装方式是使用nvm-Node的管理工具" class="headerlink" title="首先Hexo一款基于Node.js的静态博客框架，可以生成静态文件并且一键部署到github pages上，并且他可以使用markdown来编写文章，十分简单。所以安装Hexo的前提必须是要安装Node.JS和Git而Node.JS的最佳安装方式是使用nvm(Node的管理工具)"></a>首先<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo</a>一款基于Node.js的静态博客框架，可以生成静态文件并且一键部署到github pages上，并且他可以使用markdown来编写文章，十分简单。所以安装Hexo的前提必须是要安装Node.JS和Git而Node.JS的最佳安装方式是使用nvm(Node的管理工具)</h4><p>1.安装GIt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 安装 HomeBrew(一款软件包管理工具)</div><div class="line"> $ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div><div class="line"> </div><div class="line"></div><div class="line"> $ brew install git   // 安装Git</div><div class="line"> </div><div class="line">``` </div><div class="line"> </div><div class="line">这里给出来HomeBrew的基本用法方便像我这样的小白阅读了解[http://www.cnblogs.com/TankXiao/p/3247113.html#brewother](http://www.cnblogs.com/TankXiao/p/3247113.html#brewother)</div><div class="line"></div><div class="line">2.安装nvm</div></pre></td></tr></table></figure>
-<ol>
-<li><p>Homebrew 安装方式，此安装方式无需重启<br>$ brew install nvm<br>$ mkdir ~/.nvm<br>$ export NVM_DIR=~/.nvm<br>$ . $(brew –prefix nvm)/nvm.sh</p>
-</li>
-<li><p>curl安装方式<br>$ curl <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh<br>```<br>同样这里也列出来nvm的基本用法<a href="http://weizhifeng.net/node-version-management-via-n-and-nvm.html" target="_blank" rel="external">http://weizhifeng.net/node-version-management-via-n-and-nvm.html</a></p>
-</li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 安装 HomeBrew(一款软件包管理工具)</div><div class="line"> $ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div><div class="line"> </div><div class="line"></div><div class="line"> $ brew install git   // 安装Git</div></pre></td></tr></table></figure>
+<p>这里给出来HomeBrew的基本用法方便像我这样的小白阅读了解<a href="http://www.cnblogs.com/TankXiao/p/3247113.html#brewother" target="_blank" rel="external">http://www.cnblogs.com/TankXiao/p/3247113.html#brewother</a></p>
+<p>2.安装nvm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1. Homebrew 安装方式，此安装方式无需重启</div><div class="line">$ brew install nvm  </div><div class="line">$ mkdir ~/.nvm</div><div class="line">$ export NVM_DIR=~/.nvm</div><div class="line">$ . $(brew --prefix nvm)/nvm.sh</div><div class="line"></div><div class="line">2. curl安装方式</div><div class="line">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure>
+<p>同样这里也列出来nvm的基本用法<a href="http://weizhifeng.net/node-version-management-via-n-and-nvm.html" target="_blank" rel="external">http://weizhifeng.net/node-version-management-via-n-and-nvm.html</a></p>
 <p>3.安装Node.JS</p>
 <p><code>$ nvm install 4</code></p>
 <p>4.最后一步安装Hexo</p>
 <p> <code>$ sudo npm install hexo-cli -g</code></p>
 <p> 至此,为创建博客做了基础的准备~顺便也给出Hexo的文档参考,参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[First Night]]></title>
+      <url>https://blaceman.github.io/2016/11/29/FIrstNight/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。<br>123456</p>
+</blockquote>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=32507038&auto=1&height=66"></iframe>
+
+<p>我喜欢的音乐</p>
+<p>粉红色卡</p>
 ]]></content>
     </entry>
     
@@ -39,19 +50,6 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[First Night]]></title>
-      <url>https://blaceman.github.io/2016/11/29/FIrstNight/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。<br>123456</p>
-</blockquote>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=32507038&auto=1&height=66"></iframe>
-
-<p>我喜欢的音乐</p>
-<p>粉红色卡</p>
 ]]></content>
     </entry>
     
