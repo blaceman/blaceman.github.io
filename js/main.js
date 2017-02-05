@@ -50,7 +50,7 @@ $(document).ready(function() {
     $('.btn-mobile-menu__icon').toggleClass('fa fa-list fa fa-angle-up animated fadeIn');
   });
 
-  $("article.post-container--single a[href^=http]").attr("target", "_blank");
+  $("article.post-container--single a[href^=https]").attr("target", "_blank");
   $("article.post-container--single a[href^=mailto]").attr("target", "_blank");
   
   
