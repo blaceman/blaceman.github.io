@@ -121,13 +121,6 @@
   
 <!-- Twitter -->
 
-  <li class="navigation__item">
-    <a href="https://twitter.com/blacemen" title="上Twitter找我" target="_blank">
-      <i class='social fa fa-twitter'></i>
-      <span class="label">Twitter</span>
-    </a>
-  </li>
-
   
 
   <li class="navigation__item">
@@ -177,7 +170,7 @@
 </ul>
 <p>C中的宏分为两类，对象宏(object-like macro)和函数宏(function-like macro)。</p>
 <h3 id="宏定义的基本用法"><a href="#宏定义的基本用法" class="headerlink" title="宏定义的基本用法"></a>宏定义的基本用法</h3><h5 id="1-定义一个圆周率-对象宏"><a href="#1-定义一个圆周率-对象宏" class="headerlink" title="1.定义一个圆周率(对象宏)"></a>1.定义一个圆周率(对象宏)</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//This defines PI</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M_PI    3.14159265358979323846264338327950288</span></div></pre></td></tr></table></figure>
-<h5 id="2-定义一个平方函数-函数宏"><a href="#2-定义一个平方函数-函数宏" class="headerlink" title="2.定义一个平方函数(函数宏)"></a>2.定义一个平方函数(函数宏)</h5><figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#define SQUARE(A) ((A) * (A))</span></div></pre></td></tr></table></figure>
+<h5 id="2-定义一个平方函数-函数宏"><a href="#2-定义一个平方函数-函数宏" class="headerlink" title="2.定义一个平方函数(函数宏)"></a>2.定义一个平方函数(函数宏)</h5><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define SQUARE(<span class="name">A</span>) ((<span class="name">A</span>) * (A))</div></pre></td></tr></table></figure>
 <p>其实这并不是正确的写法,正确的写法应该使用GUN C 扩展来避免参数带运算符所带来的错误等</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define SQUARE(<span class="name">A</span>) (&#123; __typeof__(<span class="name">A</span>) __a = (<span class="name">A</span>)<span class="comment">; __a * __a;&#125;)</span></div></pre></td></tr></table></figure>
 <h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><h5 id="1-首先看看系统MIN-A-B"><a href="#1-首先看看系统MIN-A-B" class="headerlink" title="1.首先看看系统MIN(A,B)"></a>1.首先看看系统<code>MIN(A,B)</code></h5><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define __NSX_PASTE__(<span class="type">A</span>,<span class="type">B</span>) <span class="type">A</span>##<span class="type">B</span></div><div class="line">#<span class="keyword">if</span> !defined(<span class="type">MIN</span>)</div><div class="line">    #define __NSMIN_IMPL__(<span class="type">A</span>,<span class="type">B</span>,<span class="type">L</span>) (&#123; __typeof__(<span class="type">A</span>) __NSX_PASTE__(__a,<span class="type">L</span>) = (<span class="type">A</span>); __typeof__(<span class="type">B</span>) __NSX_PASTE__(__b,<span class="type">L</span>) = (<span class="type">B</span>); (__NSX_PASTE__(__a,<span class="type">L</span>) &lt; __NSX_PASTE__(__b,<span class="type">L</span>)) ? __NSX_PASTE__(__a,<span class="type">L</span>) : __NSX_PASTE__(__b,<span class="type">L</span>); &#125;)</div><div class="line">    #define <span class="type">MIN</span>(<span class="type">A</span>,<span class="type">B</span>) __NSMIN_IMPL__(<span class="type">A</span>,<span class="type">B</span>,__COUNTER__)</div><div class="line">#endif</div></pre></td></tr></table></figure>
@@ -190,7 +183,7 @@
 <ul>
 <li>使用”##”操作符可以实现宏中token的连接。 刚才也用过</li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#define __NSX_PASTE__(A,B) A##B</span></div></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define __NSX_PASTE__(A,B) A##B</div></pre></td></tr></table></figure>
 <ul>
 <li>多参数宏（Variadic Macros)</li>
 </ul>
