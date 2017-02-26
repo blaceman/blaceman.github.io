@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blaceman.github.io/"/>
-  <updated>2017-02-26T08:16:32.000Z</updated>
+  <updated>2017-02-26T10:26:23.000Z</updated>
   <id>https://blaceman.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Andrew NG&#39;s 机器学习 Day One</title>
-    <link href="https://blaceman.github.io/2017/02/26/Andrew-NG-s-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-day-one/"/>
-    <id>https://blaceman.github.io/2017/02/26/Andrew-NG-s-机器学习-day-one/</id>
+    <title>Andrew Ng&#39;s 机器学习 Day One</title>
+    <link href="https://blaceman.github.io/2017/02/26/Andrew-Ng-s-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-day-one/"/>
+    <id>https://blaceman.github.io/2017/02/26/Andrew-Ng-s-机器学习-day-one/</id>
     <published>2017-02-26T06:59:11.000Z</published>
-    <updated>2017-02-26T08:16:32.000Z</updated>
+    <updated>2017-02-26T10:26:23.000Z</updated>
     
     <content type="html"><![CDATA[<h5 id="前言-什么是机器学习-NG老师举了几个例子-谷歌网页搜索-脸书或苹果的照片程序认出你的朋友-电子邮件中过滤垃圾邮件的反垃圾邮件…有一种科学能让计算机学习却不需要好高深的程序"><a href="#前言-什么是机器学习-NG老师举了几个例子-谷歌网页搜索-脸书或苹果的照片程序认出你的朋友-电子邮件中过滤垃圾邮件的反垃圾邮件…有一种科学能让计算机学习却不需要好高深的程序" class="headerlink" title="前言: 什么是机器学习? NG老师举了几个例子.谷歌网页搜索,脸书或苹果的照片程序认出你的朋友,电子邮件中过滤垃圾邮件的反垃圾邮件…有一种科学能让计算机学习却不需要好高深的程序"></a>前言: 什么是机器学习? NG老师举了几个例子.谷歌网页搜索,脸书或苹果的照片程序认出你的朋友,电子邮件中过滤垃圾邮件的反垃圾邮件…有一种科学能让计算机学习却不需要好高深的程序</h5><h5 id="机器学习定义-A-computer-program-is-said-to-learn-from-experience-E-with-respect-to-some-class-of-tasks-T-and-performance-measure-P-if-its-performance-at-tasks-in-T-as-measured-by-P-improves-with-experience-E-”"><a href="#机器学习定义-A-computer-program-is-said-to-learn-from-experience-E-with-respect-to-some-class-of-tasks-T-and-performance-measure-P-if-its-performance-at-tasks-in-T-as-measured-by-P-improves-with-experience-E-”" class="headerlink" title="机器学习定义: A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”()"></a>机器学习定义: A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”()</h5><p>Example: playing checkers.</p>
 <p>E = the experience of playing many games of checkers</p>
