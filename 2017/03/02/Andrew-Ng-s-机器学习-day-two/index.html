@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Andrew Ng&#39;s 机器学习 Day Two | blaceman</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="黄昏,一天最美丽的谢幕~">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Andrew Ng&#39;s 机器学习 Day Two | blaceman">
+    <meta name="twitter:description" content="黄昏,一天最美丽的谢幕~">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Andrew Ng&#39;s 机器学习 Day Two | blaceman">
+    <meta property="og:description" content="黄昏,一天最美丽的谢幕~">
+
+    
+    <meta name="author" content="blaceman">
+    
+    <link rel="stylesheet" href="../../../../css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="blaceman" href="/atom.xml">
+    
+
+    <link rel="canonical" href="https://blaceman.github.io/2017/03/02/Andrew-Ng-s-机器学习-day-two/"/>
+
+    
+      
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../../../js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/IMG_0364.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 blaceman 的主页"><img src="/images/IMG_0355.JPG" width="80" alt="blaceman logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for blaceman">blaceman</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">懵懂 前进 憧憬</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">黄昏,一天最美丽的谢幕~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="/favourite">黄金屋</a></li>
+            
+              <li class="navigation__item"><a href="/about">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/blaceman" title="我的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/blaceman" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  <li class="navigation__item">
+    <a href="https://facebook.com/blacemen" title="上Facebook找我" target="_blank">
+      <i class='social fa fa-facebook'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-03-02T10:10:21.000Z" class="post-list__meta--date date">2017-03-02</time> &#8226; <span class="post-meta__tags tags">于&nbsp; </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Andrew Ng&#39;s 机器学习 Day Two</h1>
+
+  </header>
+
+  <section class="post">
+    <h3 id="Model-and-Cost-Function-模型与代价函数"><a href="#Model-and-Cost-Function-模型与代价函数" class="headerlink" title="Model and Cost Function(模型与代价函数)"></a>Model and Cost Function(模型与代价函数)</h3><h4 id="1-Model-Representation-模型表示"><a href="#1-Model-Representation-模型表示" class="headerlink" title="1.Model Representation(模型表示):"></a>1.Model Representation(模型表示):</h4><p><img src="3.png" alt="3"></p>
+<h5 id="为了建立将来使用的符号，我们将使用-x-i-来表示“输入”变量，也称为输入特征，并且y-i）表示我们试图预测的“输出”或目标变量（价格）。一对（x-（i）-，y-（i）-称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间"><a href="#为了建立将来使用的符号，我们将使用-x-i-来表示“输入”变量，也称为输入特征，并且y-i）表示我们试图预测的“输出”或目标变量（价格）。一对（x-（i）-，y-（i）-称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间" class="headerlink" title="为了建立将来使用的符号，我们将使用 x^(i) 来表示“输入”变量，也称为输入特征，并且y^(i）表示我们试图预测的“输出”或目标变量（价格）。一对（x ^ {（i）}，y ^ {（i）}称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间."></a>为了建立将来使用的符号，我们将使用 x^(i) 来表示“输入”变量，也称为输入特征，并且y^(i）表示我们试图预测的“输出”或目标变量（价格）。一对（x ^ {（i）}，y ^ {（i）}称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间.</h5><h5 id="为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis-假设-。从图像上看，过程是这样的"><a href="#为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis-假设-。从图像上看，过程是这样的" class="headerlink" title="为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis(假设)。从图像上看，过程是这样的"></a>为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis(假设)。从图像上看，过程是这样的</h5><h5 id="当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。"><a href="#当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。" class="headerlink" title="当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。"></a>当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。</h5><h5 id="如下图所示-其中m为数据集的个数"><a href="#如下图所示-其中m为数据集的个数" class="headerlink" title="如下图所示:(其中m为数据集的个数)"></a>如下图所示:(其中m为数据集的个数)</h5><p><img src="2.png" alt="2"></p>
+<h4 id="2-Cost-Function"><a href="#2-Cost-Function" class="headerlink" title="2.Cost Function"></a>2.Cost Function</h4><p><img src="4.png" alt="4"></p>
+<h4 id="我们有一个训练集-可能就像我在这里绘制的-我们要做的就是-得出θ0-θ1这两个参数的值-来让假设函数表示的直线-尽量地与这些数据点很好的拟合-也许就像这里的这条线一样-那么我们如何得出θ0-θ1的值-来使它很好地拟合数据的呢？我们的想法是-我们要选择-能使h-x-也就是-输入x时我们预测的值-最接近该样本对应的y值的参数θ0-θ1-所以-在我们的训练集中我们会得到一定数量的样本-我们知道x表示卖出哪所房子-并且知道这所房子的实际价格-所以-我们要尽量选择参数值-使得-在训练集中-给出训练集中的x值-我们能合理准确地预测y的值-让我们给出标准的定义-在线性回归中-我们要解决的是一个最小化问题-所以我要写出关于θ0-θ1的最小化-而且-我希望这个式子极其小-是吧"><a href="#我们有一个训练集-可能就像我在这里绘制的-我们要做的就是-得出θ0-θ1这两个参数的值-来让假设函数表示的直线-尽量地与这些数据点很好的拟合-也许就像这里的这条线一样-那么我们如何得出θ0-θ1的值-来使它很好地拟合数据的呢？我们的想法是-我们要选择-能使h-x-也就是-输入x时我们预测的值-最接近该样本对应的y值的参数θ0-θ1-所以-在我们的训练集中我们会得到一定数量的样本-我们知道x表示卖出哪所房子-并且知道这所房子的实际价格-所以-我们要尽量选择参数值-使得-在训练集中-给出训练集中的x值-我们能合理准确地预测y的值-让我们给出标准的定义-在线性回归中-我们要解决的是一个最小化问题-所以我要写出关于θ0-θ1的最小化-而且-我希望这个式子极其小-是吧" class="headerlink" title="我们有一个训练集 可能就像我在这里绘制的 我们要做的就是 得出θ0 θ1这两个参数的值 来让假设函数表示的直线 尽量地与这些数据点很好的拟合 也许就像这里的这条线一样 那么我们如何得出θ0 θ1的值 来使它很好地拟合数据的呢？我们的想法是 我们要选择 能使h(x) 也就是 输入x时我们预测的值 最接近该样本对应的y值的参数θ0 θ1 所以 在我们的训练集中我们会得到一定数量的样本 我们知道x表示卖出哪所房子 并且知道这所房子的实际价格 所以 我们要尽量选择参数值 使得 在训练集中 给出训练集中的x值 我们能合理准确地预测y的值 让我们给出标准的定义 在线性回归中 我们要解决的是一个最小化问题 所以我要写出关于θ0 θ1的最小化 而且 我希望这个式子极其小 是吧"></a>我们有一个训练集 可能就像我在这里绘制的 我们要做的就是 得出θ0 θ1这两个参数的值 来让假设函数表示的直线 尽量地与这些数据点很好的拟合 也许就像这里的这条线一样 那么我们如何得出θ0 θ1的值 来使它很好地拟合数据的呢？我们的想法是 我们要选择 能使h(x) 也就是 输入x时我们预测的值 最接近该样本对应的y值的参数θ0 θ1 所以 在我们的训练集中我们会得到一定数量的样本 我们知道x表示卖出哪所房子 并且知道这所房子的实际价格 所以 我们要尽量选择参数值 使得 在训练集中 给出训练集中的x值 我们能合理准确地预测y的值 让我们给出标准的定义 在线性回归中 我们要解决的是一个最小化问题 所以我要写出关于θ0 θ1的最小化 而且 我希望这个式子极其小 是吧</h4><p><img src="7.png" alt="7"></p>
+<h5 id="我们可以通过使用代价函数来测量我们的假设函数的准确性。-这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。"><a href="#我们可以通过使用代价函数来测量我们的假设函数的准确性。-这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。" class="headerlink" title="我们可以通过使用代价函数来测量我们的假设函数的准确性。 这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。"></a>我们可以通过使用代价函数来测量我们的假设函数的准确性。 这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。</h5><h5 id="为了将它分开，它是1-2-×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。"><a href="#为了将它分开，它是1-2-×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。" class="headerlink" title="为了将它分开，它是1/2 -×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。"></a>为了将它分开，它是1/2 -×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。</h5><h5 id="该函数另外称为“平方误差函数”或“均方误差”。-为了方便计算梯度下降，平均值被减半（1-2），因为平方函数的导数项将抵消1-2。-下图总结了代价函数的作用："><a href="#该函数另外称为“平方误差函数”或“均方误差”。-为了方便计算梯度下降，平均值被减半（1-2），因为平方函数的导数项将抵消1-2。-下图总结了代价函数的作用：" class="headerlink" title="该函数另外称为“平方误差函数”或“均方误差”。 为了方便计算梯度下降，平均值被减半（1/2），因为平方函数的导数项将抵消1/2。 下图总结了代价函数的作用："></a>该函数另外称为“平方误差函数”或“均方误差”。 为了方便计算梯度下降，平均值被减半（1/2），因为平方函数的导数项将抵消1/2。 下图总结了代价函数的作用：</h5><p><img src="6.png" alt="6"></p>
+<h4 id="3-Cost-Function-Intuition-I-theta0-为0"><a href="#3-Cost-Function-Intuition-I-theta0-为0" class="headerlink" title="3.Cost Function - Intuition I(theta0 为0)"></a>3.Cost Function - Intuition I(theta0 为0)</h4><h5 id="直观的表示-我们将建立-x-y-坐标-用一条尽可能通过所有数据集的直线"><a href="#直观的表示-我们将建立-x-y-坐标-用一条尽可能通过所有数据集的直线" class="headerlink" title="直观的表示,我们将建立(x,y)坐标,用一条尽可能通过所有数据集的直线"></a>直观的表示,我们将建立(x,y)坐标,用一条尽可能通过所有数据集的直线</h5><h5 id="我们的目标是获得最好的线。-最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。-理想情况下，线应该通过我们训练数据集的所有点。-在这种情况下，-J（-theta-0，-theta-1）-的值将为0-以下示例显示了我们的代价函数为0的理想情况。"><a href="#我们的目标是获得最好的线。-最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。-理想情况下，线应该通过我们训练数据集的所有点。-在这种情况下，-J（-theta-0，-theta-1）-的值将为0-以下示例显示了我们的代价函数为0的理想情况。" class="headerlink" title="我们的目标是获得最好的线。 最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。 理想情况下，线应该通过我们训练数据集的所有点。 在这种情况下，$$ J（\ theta_0，\ theta_1）$$的值将为0.以下示例显示了我们的代价函数为0的理想情况。"></a>我们的目标是获得最好的线。 最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。 理想情况下，线应该通过我们训练数据集的所有点。 在这种情况下，$$ J（\ theta_0，\ theta_1）$$的值将为0.以下示例显示了我们的代价函数为0的理想情况。</h5><p><img src="8.png" alt="8"></p>
+<h5 id="当-theta-1-1-时，我们得到的斜率为1，它通过模型中的每个数据点。-相反，当-theta-1-0-5-时，我们看到从我们的拟合到数据点的垂直距离增加。"><a href="#当-theta-1-1-时，我们得到的斜率为1，它通过模型中的每个数据点。-相反，当-theta-1-0-5-时，我们看到从我们的拟合到数据点的垂直距离增加。" class="headerlink" title="当$$ \ theta_1 = 1 $$时，我们得到的斜率为1，它通过模型中的每个数据点。 相反，当$$ \ theta_1 = 0.5 $$时，我们看到从我们的拟合到数据点的垂直距离增加。"></a>当$$ \ theta_1 = 1 $$时，我们得到的斜率为1，它通过模型中的每个数据点。 相反，当$$ \ theta_1 = 0.5 $$时，我们看到从我们的拟合到数据点的垂直距离增加。</h5><p><img src="9.png" alt="9"></p>
+<h5 id="这将我们的代价函数增加到-0-58。-绘制其他几个点可得到以下图表："><a href="#这将我们的代价函数增加到-0-58。-绘制其他几个点可得到以下图表：" class="headerlink" title="这将我们的代价函数增加到 0.58。 绘制其他几个点可得到以下图表："></a>这将我们的代价函数增加到 0.58。 绘制其他几个点可得到以下图表：</h5><p><img src="10.png" alt="10"></p>
+<h4 id="4-Cost-Function-Intuition-II-theta-0-不为0"><a href="#4-Cost-Function-Intuition-II-theta-0-不为0" class="headerlink" title="4. Cost Function - Intuition II(theta_0 不为0)"></a>4. Cost Function - Intuition II(theta_0 不为0)</h4><h5 id="等高线图是包含许多轮廓线的图。-两个可变函数的轮廓线在同一线的所有点处具有恒定值。-这样的图的示例是下面的一个。"><a href="#等高线图是包含许多轮廓线的图。-两个可变函数的轮廓线在同一线的所有点处具有恒定值。-这样的图的示例是下面的一个。" class="headerlink" title="等高线图是包含许多轮廓线的图。 两个可变函数的轮廓线在同一线的所有点处具有恒定值。 这样的图的示例是下面的一个。"></a>等高线图是包含许多轮廓线的图。 两个可变函数的轮廓线在同一线的所有点处具有恒定值。 这样的图的示例是下面的一个。</h5><p><img src="11.png" alt="11"></p>
+<h5 id="任何颜色沿着“圆”，人们将获得都是相同的代价函数值。-例如，在上面的绿线上找到的三个绿点对于-J（-theta-0，-theta-1）-具有相同的值，因此，它们沿着相同的线找到。-当-theta-0-800和-theta-1-0-15时，圆圈x显示左侧图形的成本函数的值。-取另一个h（x）并绘制其等值线图，得到以下图表："><a href="#任何颜色沿着“圆”，人们将获得都是相同的代价函数值。-例如，在上面的绿线上找到的三个绿点对于-J（-theta-0，-theta-1）-具有相同的值，因此，它们沿着相同的线找到。-当-theta-0-800和-theta-1-0-15时，圆圈x显示左侧图形的成本函数的值。-取另一个h（x）并绘制其等值线图，得到以下图表：" class="headerlink" title="任何颜色沿着“圆”，人们将获得都是相同的代价函数值。 例如，在上面的绿线上找到的三个绿点对于$$ J（\ theta_0，\ theta_1）$$具有相同的值，因此，它们沿着相同的线找到。 当$$ \ theta_0 $$ = 800和$$ \ theta_1 $$ = -0.15时，圆圈x显示左侧图形的成本函数的值。 取另一个h（x）并绘制其等值线图，得到以下图表："></a>任何颜色沿着“圆”，人们将获得都是相同的代价函数值。 例如，在上面的绿线上找到的三个绿点对于$$ J（\ theta_0，\ theta_1）$$具有相同的值，因此，它们沿着相同的线找到。 当$$ \ theta_0 $$ = 800和$$ \ theta_1 $$ = -0.15时，圆圈x显示左侧图形的成本函数的值。 取另一个h（x）并绘制其等值线图，得到以下图表：</h5><p><img src="12.png" alt="12"></p>
+<h5 id="当-theta-0-360和-theta-1-0时，轮廓图中的-J（-theta-0，-theta-1）-的值更接近中心，从而降低代价函数误差。-现在给我们的假设函数稍微正的斜率导致更好的数据拟合。"><a href="#当-theta-0-360和-theta-1-0时，轮廓图中的-J（-theta-0，-theta-1）-的值更接近中心，从而降低代价函数误差。-现在给我们的假设函数稍微正的斜率导致更好的数据拟合。" class="headerlink" title="当$$ \ theta_0 $$ = 360和$$ \ theta_1 $$ = 0时，轮廓图中的$$ J（\ theta_0，\ theta_1）$$的值更接近中心，从而降低代价函数误差。 现在给我们的假设函数稍微正的斜率导致更好的数据拟合。"></a>当$$ \ theta_0 $$ = 360和$$ \ theta_1 $$ = 0时，轮廓图中的$$ J（\ theta_0，\ theta_1）$$的值更接近中心，从而降低代价函数误差。 现在给我们的假设函数稍微正的斜率导致更好的数据拟合。</h5><p><img src="13.png" alt="13"></p>
+<h5 id="上面的图表尽可能最小化了代价函数，因此，-theta-1-和-theta-0-的结果分别趋向于大约0-12和250。-在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。"><a href="#上面的图表尽可能最小化了代价函数，因此，-theta-1-和-theta-0-的结果分别趋向于大约0-12和250。-在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。" class="headerlink" title="上面的图表尽可能最小化了代价函数，因此，$$ \ theta_1 $$和$$ \ theta_0 $$的结果分别趋向于大约0.12和250。 在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。"></a>上面的图表尽可能最小化了代价函数，因此，$$ \ theta_1 $$和$$ \ theta_0 $$的结果分别趋向于大约0.12和250。 在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。</h5>
+  </section>
+
+</article>
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/02/26/Andrew-Ng-s-机器学习-day-one/" title="Andrew Ng&#39;s 机器学习 Day One">Andrew Ng&#39;s 机器学习 Day One</a></h2>
+                <p class="excerpt">
+                
+                前言: 什么是机器学习? NG老师举了几个例子.谷歌网页搜索,脸书或苹果的照片程序认出你的朋友,电子邮件中过滤垃圾邮件的反垃圾邮件…有一种科学能让计算机学习却不需要好高深的程序机器学习定义: A computer program is said to learn from experience E 
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-02-26T06:59:11.000Z" class="post-list__meta--date date">2017-02-26</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2017/02/26/Andrew-Ng-s-机器学习-day-one/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+            
+<section class="post-comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="https://blaceman.github.io/2017/03/02/Andrew-Ng-s-机器学习-day-two/" data-title="Andrew Ng&#39;s 机器学习 Day Two" data-url="https://blaceman.github.io/2017/03/02/Andrew-Ng-s-机器学习-day-two/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"blaceman"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由 <a href="/">@Monniya</a> 创建,
+        使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">hexo-theme-new-vno</a> 主题,
+        修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+    </span>
+</footer>
+        </div>
+    </div>
+
+    
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-88357723-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?a386cb01ab38fbd195ecd0b8943ecb99";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    
+    </script>
+    
+</body>
+</html>
