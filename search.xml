@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[Andrew Ng's Machine Learning First Day of the Second Week]]></title>
+      <url>https://blaceman.github.io/2017/03/13/Andrew-Ng-s-Machine-learning-first-day-of-the-second-week/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Andrew Ng's 机器学习Day Three]]></title>
       <url>https://blaceman.github.io/2017/03/09/Andrew-Ng-s-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0day-three/</url>
       <content type="html"><![CDATA[<h3 id="Paramater-Learning-参数学习"><a href="#Paramater-Learning-参数学习" class="headerlink" title="Paramater Learning(参数学习)"></a>Paramater Learning(参数学习)</h3><h4 id="1-Gradient-Descent-梯度下降"><a href="#1-Gradient-Descent-梯度下降" class="headerlink" title="1.Gradient Descent(梯度下降)"></a>1.Gradient Descent(梯度下降)</h4><h5 id="假定我们有一个hypothesis函数-我们有一个方法测量合适的数据-现在我们需要估计hypothesis函数的参数-这时梯度下降派上用场"><a href="#假定我们有一个hypothesis函数-我们有一个方法测量合适的数据-现在我们需要估计hypothesis函数的参数-这时梯度下降派上用场" class="headerlink" title="假定我们有一个hypothesis函数,我们有一个方法测量合适的数据,现在我们需要估计hypothesis函数的参数,这时梯度下降派上用场"></a>假定我们有一个hypothesis函数,我们有一个方法测量合适的数据,现在我们需要估计hypothesis函数的参数,这时<code>梯度下降</code>派上用场</h5><h5 id="假设我们要画出基于θ0和θ1的假设函数-hypothesis-实际上我们把代价函数绘制为参数估值函数-我们不是绘制x和y本身，而是我们的假设函数的参数范围和由选择特定参数集所产生的代价"><a href="#假设我们要画出基于θ0和θ1的假设函数-hypothesis-实际上我们把代价函数绘制为参数估值函数-我们不是绘制x和y本身，而是我们的假设函数的参数范围和由选择特定参数集所产生的代价" class="headerlink" title="假设我们要画出基于θ0和θ1的假设函数(hypothesis)(实际上我们把代价函数绘制为参数估值函数) 我们不是绘制x和y本身，而是我们的假设函数的参数范围和由选择特定参数集所产生的代价"></a>假设我们要画出基于θ0和θ1的假设函数(hypothesis)(实际上我们把代价函数绘制为参数估值函数) 我们不是绘制x和y本身，而是我们的假设函数的参数范围和由选择特定参数集所产生的代价</h5><h5 id="我们把θ0放在x轴上，把θ1放在y轴上，成本函数放在垂直z轴上。-我们的图上的点将是使用具有那些特定θ参数的我们的假设的代价函数的结果。-下图描绘了这样的设置"><a href="#我们把θ0放在x轴上，把θ1放在y轴上，成本函数放在垂直z轴上。-我们的图上的点将是使用具有那些特定θ参数的我们的假设的代价函数的结果。-下图描绘了这样的设置" class="headerlink" title="我们把θ0放在x轴上，把θ1放在y轴上，成本函数放在垂直z轴上。 我们的图上的点将是使用具有那些特定θ参数的我们的假设的代价函数的结果。 下图描绘了这样的设置"></a>我们把θ0放在x轴上，把θ1放在y轴上，成本函数放在垂直z轴上。 我们的图上的点将是使用具有那些特定θ参数的我们的假设的代价函数的结果。 下图描绘了这样的设置</h5><p><img src="1.png" alt="1"></p>

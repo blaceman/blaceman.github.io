@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blaceman.github.io/"/>
-  <updated>2017-03-09T12:47:29.000Z</updated>
+  <updated>2017-05-19T01:22:02.000Z</updated>
   <id>https://blaceman.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Andrew Ng&#39;s Machine Learning First Day of the Second Week</title>
+    <link href="https://blaceman.github.io/2017/03/13/Andrew-Ng-s-Machine-learning-first-day-of-the-second-week/"/>
+    <id>https://blaceman.github.io/2017/03/13/Andrew-Ng-s-Machine-learning-first-day-of-the-second-week/</id>
+    <published>2017-03-13T07:23:49.000Z</published>
+    <updated>2017-05-19T01:22:02.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Andrew Ng&#39;s 机器学习Day Three</title>
