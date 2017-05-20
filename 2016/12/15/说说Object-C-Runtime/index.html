@@ -219,7 +219,7 @@
 <li>类调度表。 此表具有将方法选择器与其标识的方法的类特定地址相关联的条目。 setOrigin ::方法的选择器与（实现的过程）setOrigin ::的地址相关联，显示方法的选择器与显示地址相关联，依此类推。</li>
 </ul>
 <p>创建新对象时，将分配其内存，并初始化其实例变量。 第一个对象的变量是一个指向它的类结构的指针。 这个指针，称为isa，给对象访问它的类，并通过类，到它继承的所有类。</p>
-<p><img src="messaging1.gif" alt="message"></p>
+<p><img src="/2016/12/15/说说Object-C-Runtime/messaging1.gif" alt="message"></p>
 <p>当消息发送給对象,这个消息转发函数会随着对象的isa指针到调度表寻找的方法选择器(selector)类结构.如果没有发现selector,objc_msgSend会随着指针到超类调度表寻找selector,直到NSObject.一旦找到selector,就进入表调用这个方法和传递它给接收对象的数据结构</p>
 <p>这就是方法runtime方法实现的方式,或者用术语来说,方法动态绑定.</p>
 <p>为了加快消息转发的过程,当它们被调用,运行时系统缓存了selector和方法的地址.而且为每个类分开做缓存.它包含继承的的方法和在类中定义的方法.在查找总调度表之前,首先查找缓存调度表.如果是在缓存找到selector,消息转发仅比函数调用略微耗时.</p>
@@ -273,7 +273,7 @@
 <p><code>forwardInvocation：</code>方法可以充当未识别消息的分发中心，将它们分解到不同的接收方。 或者它可以是转移站，将所有消息发送到相同的目的地。 它可以将一个消息转换为另一个消息，或者简单地“吞下”一些消息，所以没有响应和没有错误。 <code>forwardInvocation：</code>方法还可以将多个消息合并为单个响应。 <code>forwardInvocation：</code>做的事情给实现者。 然而，它提供用于在转发链中链接对象的机会为程序设计打开了可能性。</p>
 <p>注意：<code>forwardInvocation：</code>方法仅在它们不调用名义接收器中的现有方法时才处理消息。 例如，如果您希望对象将negotiate消息转发给另一个对象，则它不能具有自己的negotiate方法。 如果有，消息将永远不会到达<code>forwardInvocation：</code>。<br>有关转发和调用的更多信息，请参阅Foundation框架参考中的NSInvocation类规范。</p>
 <h5 id="Forwarding-and-Multiple-Inheritance-转发和多继承"><a href="#Forwarding-and-Multiple-Inheritance-转发和多继承" class="headerlink" title="Forwarding and Multiple Inheritance(转发和多继承)"></a>Forwarding and Multiple Inheritance(转发和多继承)</h5><p>转发模拟继承，可用于将多重继承的一些影响借给Objective-C程序，通过转发消息来响应消息的对象似乎借用或“继承”另一个类中定义的方法实现。</p>
-<p><img src="forwarding.gif" alt="forwarding"></p>
+<p><img src="/2016/12/15/说说Object-C-Runtime/forwarding.gif" alt="forwarding"></p>
 <p>在此图中，Warrior类的实例将negotiate消息转发到Diplomat类的实例。Warrior就像像Diplomat调用negotiate。Warrior似乎对negotiate的信息作出反应，并且为了所有实际目做出回应（它就像真的是一个Diplomat(外交官)，正在做的工作）。</p>
 <p>转发消息的对象因此从继承层次结构的两个分支“继承”方法 - 它自己的分支和响应消息的对象的分支。在上面的例子中，Warrior类继承自Diplomat以及它自己的超类。</p>
 <p>转发提供了您通常希望从多重继承的大多数功能。但是，这两者之间有一个重要的区别：多重继承将单个对象中的不同能力组合在一起。它倾向于大，多面的对象。另一方面，转发为不同的对象分配单独的职责。它将问题分解为较小的对象，但以对消息发送方透明的方式关联这些对象</p>
