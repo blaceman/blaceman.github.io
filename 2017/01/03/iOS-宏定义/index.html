@@ -25,7 +25,7 @@
     
     <meta name="author" content="blaceman">
     
-    <link rel="stylesheet" href="../../../../css/vno.css">
+    <link rel="stylesheet" href="/css/vno.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
     
@@ -45,7 +45,7 @@
 
 <body class="home-template no-js">
     <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <script src="../../../../js/main.js"></script>
+    <script src="/js/main.js"></script>
     <span class="mobile btn-mobile-menu">
         <i class="fa fa-list btn-mobile-menu__icon"></i>
         <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
@@ -163,52 +163,106 @@
   </header>
 
   <section class="post">
-    <h5 id="一直以来用宏定义只用了些基本的东西例如常量定义最多也就是定义一个函数很少关注宏定义高级的用法今天就说一下摸索一下高级用法~"><a href="#一直以来用宏定义只用了些基本的东西-例如常量定义-最多也就是定义一个函数-很少关注宏定义高级的用法-今天就说一下摸索一下高级用法" class="headerlink" title="一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~"></a>一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~</h5><h3 id="这篇文章主要说"><a href="#这篇文章主要说" class="headerlink" title="这篇文章主要说"></a>这篇文章主要说</h3><ul>
+    <h5 id="yi-zhi-yi-lai-yong-hong-ding-yi-zhi-yong-liao-xie-ji-ben-de-dong-xi-li-ru-chang-liang-ding-yi-zui-duo-ye-jiu-shi-ding-yi-yi-ge-han-shu-hen-shao-guan-zhu-hong-ding-yi-gao-ji-de-yong-fa-jin-tian-jiu-shuo-yi-xia-mo-suo-yi-xia-gao-ji-yong-fa"><a href="#一直以来用宏定义只用了些基本的东西-例如常量定义-最多也就是定义一个函数-很少关注宏定义高级的用法-今天就说一下摸索一下高级用法" class="headerlink" title="一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~"></a>一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~</h5><h3 id="zhe-pian-wen-zhang-zhu-yao-shuo"><a href="#这篇文章主要说" class="headerlink" title="这篇文章主要说"></a>这篇文章主要说</h3><ul>
 <li>宏定义的基本用法</li>
 <li>高级用法</li>
 <li>常用的宏定义</li>
 </ul>
 <p>C中的宏分为两类，对象宏(object-like macro)和函数宏(function-like macro)。</p>
-<h3 id="宏定义的基本用法"><a href="#宏定义的基本用法" class="headerlink" title="宏定义的基本用法"></a>宏定义的基本用法</h3><h5 id="1定义一个圆周率对象宏"><a href="#1-定义一个圆周率-对象宏" class="headerlink" title="1.定义一个圆周率(对象宏)"></a>1.定义一个圆周率(对象宏)</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//This defines PI</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M_PI    3.14159265358979323846264338327950288</span></div></pre></td></tr></table></figure>
-<h5 id="2定义一个平方函数函数宏"><a href="#2-定义一个平方函数-函数宏" class="headerlink" title="2.定义一个平方函数(函数宏)"></a>2.定义一个平方函数(函数宏)</h5><figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#define SQUARE(A) ((A) * (A))</span></div></pre></td></tr></table></figure>
-<p>其实这并不是正确的写法,正确的写法应该使用GUN C 扩展来避免参数带运算符所带来的错误等</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define SQUARE(<span class="name">A</span>) (&#123; __typeof__(<span class="name">A</span>) __a = (<span class="name">A</span>)<span class="comment">; __a * __a;&#125;)</span></div></pre></td></tr></table></figure>
-<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><h5 id="1首先看看系统minab"><a href="#1-首先看看系统MIN-A-B" class="headerlink" title="1.首先看看系统MIN(A,B)"></a>1.首先看看系统<code>MIN(A,B)</code></h5><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define __NSX_PASTE__(<span class="type">A</span>,<span class="type">B</span>) <span class="type">A</span>##<span class="type">B</span></div><div class="line">#<span class="keyword">if</span> !defined(<span class="type">MIN</span>)</div><div class="line">    #define __NSMIN_IMPL__(<span class="type">A</span>,<span class="type">B</span>,<span class="type">L</span>) (&#123; __typeof__(<span class="type">A</span>) __NSX_PASTE__(__a,<span class="type">L</span>) = (<span class="type">A</span>); __typeof__(<span class="type">B</span>) __NSX_PASTE__(__b,<span class="type">L</span>) = (<span class="type">B</span>); (__NSX_PASTE__(__a,<span class="type">L</span>) &lt; __NSX_PASTE__(__b,<span class="type">L</span>)) ? __NSX_PASTE__(__a,<span class="type">L</span>) : __NSX_PASTE__(__b,<span class="type">L</span>); &#125;)</div><div class="line">    #define <span class="type">MIN</span>(<span class="type">A</span>,<span class="type">B</span>) __NSMIN_IMPL__(<span class="type">A</span>,<span class="type">B</span>,__COUNTER__)</div><div class="line">#endif</div></pre></td></tr></table></figure>
-<p>这<code>MIN(A,B)</code>分为三部分,第一部分是<code>#define __NSX_PASTE__(A,B) A##B</code>,##的意思是将A和B连接起来的意思,而第二部分是带三个参数<code>#define __NSMIN_IMPL__(A,B,L)</code>参数A,B自然是输入参数,而L则是<code>__NSX_PASTE__(__a,L)</code>定义的连接<code>__a</code>和<code>L</code>的参数名,再看第三部分<code>#define MIN(A,B) __NSMIN_IMPL__(A,B,__COUNTER__)</code>,<code>__COUNTER__</code>是一个预定义的宏，这个值在编译过程中将从0开始计数，每次被调用时加1。明显这是保证构造独立的变量名称,大大避免了变量名相同而导致问题的可能性。<br><br>我们把上诉自己定义的<code>SQUARE(A)</code>变成最接近系统那样的写法</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define __SQUARE_IMPL__(<span class="name">A</span>,L) (&#123; __typeof__(<span class="name">A</span>) __NSX_PASTE__(<span class="name">__a</span>,L) = (<span class="name">A</span>)<span class="comment">; __NSX_PASTE__(__a,L) * __NSX_PASTE__(__a,L);&#125;)</span></div><div class="line">#define SQUARE(<span class="name">A</span>) __square_IMPL__(<span class="name">A</span>,__COUNTER__)</div></pre></td></tr></table></figure>
-<h5 id="2使用-宏定义macros-__vaargs"><a href="#2-使用-宏定义macros-（-，-，…，-VAARGS" class="headerlink" title="2.使用 宏定义macros （#，##，…，__VAARGS)"></a>2.使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</h5><ul>
+<h3 id="hong-ding-yi-de-ji-ben-yong-fa"><a href="#宏定义的基本用法" class="headerlink" title="宏定义的基本用法"></a>宏定义的基本用法</h3><h5 id="1-ding-yi-yi-ge-yuan-zhou-lu-dui-xiang-hong"><a href="#1-定义一个圆周率-对象宏" class="headerlink" title="1.定义一个圆周率(对象宏)"></a>1.定义一个圆周率(对象宏)</h5><pre><code>//This defines PI
+#define M_PI    3.14159265358979323846264338327950288
+</code></pre><h5 id="2-ding-yi-yi-ge-ping-fang-han-shu-han-shu-hong"><a href="#2-定义一个平方函数-函数宏" class="headerlink" title="2.定义一个平方函数(函数宏)"></a>2.定义一个平方函数(函数宏)</h5><pre><code>#define SQUARE(A) ((A) * (A))
+</code></pre><p>其实这并不是正确的写法,正确的写法应该使用GUN C 扩展来避免参数带运算符所带来的错误等</p>
+<pre><code>#define SQUARE(A) ({ __typeof__(A) __a = (A); __a * __a;})
+</code></pre><h3 id="gao-ji-yong-fa"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><h5 id="1-shou-xian-kan-kan-xi-tong-min-a-b"><a href="#1-首先看看系统MIN-A-B" class="headerlink" title="1.首先看看系统MIN(A,B)"></a>1.首先看看系统<code>MIN(A,B)</code></h5><pre><code>#define __NSX_PASTE__(A,B) A##B
+#if !defined(MIN)
+    #define __NSMIN_IMPL__(A,B,L) ({ __typeof__(A) __NSX_PASTE__(__a,L) = (A); __typeof__(B) __NSX_PASTE__(__b,L) = (B); (__NSX_PASTE__(__a,L) &lt; __NSX_PASTE__(__b,L)) ? __NSX_PASTE__(__a,L) : __NSX_PASTE__(__b,L); })
+    #define MIN(A,B) __NSMIN_IMPL__(A,B,__COUNTER__)
+#endif
+</code></pre><p>这<code>MIN(A,B)</code>分为三部分,第一部分是<code>#define __NSX_PASTE__(A,B) A##B</code>,##的意思是将A和B连接起来的意思,而第二部分是带三个参数<code>#define __NSMIN_IMPL__(A,B,L)</code>参数A,B自然是输入参数,而L则是<code>__NSX_PASTE__(__a,L)</code>定义的连接<code>__a</code>和<code>L</code>的参数名,再看第三部分<code>#define MIN(A,B) __NSMIN_IMPL__(A,B,__COUNTER__)</code>,<code>__COUNTER__</code>是一个预定义的宏，这个值在编译过程中将从0开始计数，每次被调用时加1。明显这是保证构造独立的变量名称,大大避免了变量名相同而导致问题的可能性。<br><br>我们把上诉自己定义的<code>SQUARE(A)</code>变成最接近系统那样的写法</p>
+<pre><code>#define __SQUARE_IMPL__(A,L) ({ __typeof__(A) __NSX_PASTE__(__a,L) = (A); __NSX_PASTE__(__a,L) * __NSX_PASTE__(__a,L);})
+#define SQUARE(A) __square_IMPL__(A,__COUNTER__)
+</code></pre><h5 id="2-shi-yong-hong-ding-yi-macros-vaargs"><a href="#2-使用-宏定义macros-（-，-，…，-VAARGS" class="headerlink" title="2.使用 宏定义macros （#，##，…，__VAARGS)"></a>2.使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</h5><ul>
 <li>使用”#“预处理操作符来实现将宏中的参数转化为字符串</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> WARN_IF(EXP) \  </span></div><div class="line"><span class="keyword">do</span> &#123; <span class="keyword">if</span> (EXP) \  </div><div class="line">        <span class="built_in">fprintf</span> (<span class="built_in">stderr</span>, <span class="string">"Warning: "</span> #EXP <span class="string">"\n"</span>); &#125; \  </div><div class="line"><span class="keyword">while</span> (<span class="number">0</span>)  </div><div class="line">WARN_IF (x == <span class="number">0</span>);  </div><div class="line">     ==&gt; <span class="keyword">do</span> &#123; <span class="keyword">if</span> (x == <span class="number">0</span>)  </div><div class="line">           <span class="built_in">fprintf</span> (<span class="built_in">stderr</span>, <span class="string">"Warning: "</span> <span class="string">"x == 0"</span> <span class="string">"\n"</span>); &#125; <span class="keyword">while</span> (<span class="number">0</span>);</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>#define WARN_IF(EXP) \  
+do { if (EXP) \  
+        fprintf (stderr, &quot;Warning: &quot; #EXP &quot;\n&quot;); } \  
+while (0)  
+WARN_IF (x == 0);  
+     ==&gt; do { if (x == 0)  
+           fprintf (stderr, &quot;Warning: &quot; &quot;x == 0&quot; &quot;\n&quot;); } while (0);
+</code></pre><ul>
 <li>使用”##”操作符可以实现宏中token的连接。 刚才也用过</li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#define __NSX_PASTE__(A,B) A##B</span></div></pre></td></tr></table></figure>
-<ul>
+<pre><code>#define __NSX_PASTE__(A,B) A##B
+</code></pre><ul>
 <li>多参数宏（Variadic Macros)</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define eprintf(...) fprintf (<span class="name">stderr</span>, __VA_ARGS__)  </div><div class="line">eprintf (<span class="string">"%s:%d: "</span>, input_file, lineno)  </div><div class="line">     ==&gt;  fprintf (<span class="name">stderr</span>, <span class="string">"%s:%d: "</span>, input_file, lineno)</div></pre></td></tr></table></figure>
-<p>使用标识符__VA<em>ARGS</em>来表示多个参数，在宏的名称中则使用(…)</p>
+<pre><code>#define eprintf(...) fprintf (stderr, __VA_ARGS__)  
+eprintf (&quot;%s:%d: &quot;, input_file, lineno)  
+     ==&gt;  fprintf (stderr, &quot;%s:%d: &quot;, input_file, lineno)
+</code></pre><p>使用标识符__VA<em>ARGS</em>来表示多个参数，在宏的名称中则使用(…)</p>
 <ul>
 <li>“##”的特殊用法：</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define eprintf(<span class="name">format</span>, ...) fprintf (<span class="name">stderr</span>, format, ##__VA_ARGS__)  </div><div class="line">eprintf (<span class="string">"success!\n"</span>)  </div><div class="line">     ==&gt; fprintf(<span class="name">stderr</span>, <span class="string">"success!\n"</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>将”##”放在”,”和参数之间，那么如果参数留空的话，那么”##”前面的”,”就会删掉，从而防止编译错误。</p>
+<pre><code>#define eprintf(format, ...) fprintf (stderr, format, ##__VA_ARGS__)  
+eprintf (&quot;success!\n&quot;)  
+     ==&gt; fprintf(stderr, &quot;success!\n&quot;);
+</code></pre><p>将”##”放在”,”和参数之间，那么如果参数留空的话，那么”##”前面的”,”就会删掉，从而防止编译错误。</p>
 <ul>
 <li>例如:log 重定义</li>
 </ul>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Another wrong version of NSLog</span></div><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">NSLog</span>(format, ...)   &#123;</div><div class="line">                               <span class="selector-tag">fprintf</span>(stderr, <span class="string">"&lt;%s : %d&gt; %s\n"</span>,                                           \</div><div class="line">                               [[[NSString <span class="attribute">stringWithUTF8String</span>:__FILE__] lastPathComponent] UTF8String],  \</div><div class="line">                               __LINE__, __func__);                                                        \</div><div class="line">                               (NSLog)((format), ##__VA_ARGS__);                                           \</div><div class="line">                               <span class="selector-tag">fprintf</span>(stderr, <span class="string">"-------\n"</span>);                                               \</div><div class="line">                             &#125;</div></pre></td></tr></table></figure>
-<p>这里用到了三个预定义宏，和刚才的<code>__COUNTER__</code>类似，预定义宏的行为是由编译器指定的。<code>__FILE__</code>返回当前文件的绝对路径，<code>__LINE__</code>返回展开该宏时在文件中的行数，<code>__func__</code>是改宏所在scope的函数名称。我们在做Log输出时如果带上这这三个参数，便可以加快解读Log，迅速定位</p>
-<h3 id="常用的宏定义"><a href="#常用的宏定义" class="headerlink" title="常用的宏定义"></a>常用的宏定义</h3><h5 id="输出rectsize和point的宏"><a href="#输出rect，size和point的宏" class="headerlink" title="输出rect，size和point的宏"></a>输出rect，size和point的宏</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">#def</span>ine NSLogRect(rect) NSLog(@<span class="string">"%s x:%.4f, y:%.4f, w:%.4f, h:%.4f"</span>, <span class="selector-id">#rect</span>, rect<span class="selector-class">.origin</span><span class="selector-class">.x</span>, rect<span class="selector-class">.origin</span><span class="selector-class">.y</span>, rect<span class="selector-class">.size</span><span class="selector-class">.width</span>, rect<span class="selector-class">.size</span><span class="selector-class">.height</span>)</div><div class="line"><span class="number">#def</span>ine NSLogSize(size) NSLog(@<span class="string">"%s w:%.4f, h:%.4f"</span>, <span class="selector-id">#size</span>, size<span class="selector-class">.width</span>, size.<span class="attribute">height</span>)</div><div class="line"><span class="number">#def</span>ine NSLogPoint(point) NSLog(@<span class="string">"%s x:%.4f, y:%.4f"</span>, <span class="selector-id">#point</span>, point<span class="selector-class">.x</span>, point.y)</div></pre></td></tr></table></figure>
-<h5 id="获取屏幕-宽度-高度"><a href="#获取屏幕-宽度、高度" class="headerlink" title="获取屏幕 宽度、高度"></a>获取屏幕 宽度、高度</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">SCREEN_WIDTH</span> (<span class="selector-attr">[UIScreen mainScreen]</span><span class="selector-class">.bounds</span><span class="selector-class">.size</span><span class="selector-class">.width</span>)</div><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">SCREENH_HEIGHT</span> (<span class="selector-attr">[UIScreen mainScreen]</span><span class="selector-class">.bounds</span><span class="selector-class">.size</span><span class="selector-class">.height</span>)</div></pre></td></tr></table></figure>
-<h5 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h5><figure class="highlight inform7"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define IOS10_OR_LATER		( <span class="comment">[<span class="comment">[<span class="comment">[UIDevice currentDevice]</span> systemVersion]</span> floatValue]</span> &gt;= 10.0 )</div><div class="line">#define IOS9_OR_LATER		( <span class="comment">[<span class="comment">[<span class="comment">[UIDevice currentDevice]</span> systemVersion]</span> floatValue]</span> &gt;= 9.0  )</div><div class="line">#define IOS8_OR_LATER		( <span class="comment">[<span class="comment">[<span class="comment">[UIDevice currentDevice]</span> systemVersion]</span> floatValue]</span> &gt;= 8.0 )</div></pre></td></tr></table></figure>
-<h5 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">IS_SCREEN_55_INCH</span>	([UIScreen <span class="attribute">instancesRespondToSelector</span>:<span class="variable">@selector</span>(currentMode)] ? CGSizeEqualToSize(CGSizeMake(<span class="number">1242</span>, <span class="number">2208</span>), [[UIScreen mainScreen] currentMode].size) : NO)</div><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">IS_SCREEN_47_INCH</span>	([UIScreen <span class="attribute">instancesRespondToSelector</span>:<span class="variable">@selector</span>(currentMode)] ? CGSizeEqualToSize(CGSizeMake(<span class="number">750</span>, <span class="number">1334</span>), [[UIScreen mainScreen] currentMode].size) : NO)</div><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">IS_SCREEN_4_INCH</span>	([UIScreen <span class="attribute">instancesRespondToSelector</span>:<span class="variable">@selector</span>(currentMode)] ? CGSizeEqualToSize(CGSizeMake(<span class="number">640</span>, <span class="number">1136</span>), [[UIScreen mainScreen] currentMode].size) : NO)</div><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">IS_SCREEN_35_INCH</span>	([UIScreen <span class="attribute">instancesRespondToSelector</span>:<span class="variable">@selector</span>(currentMode)] ? CGSizeEqualToSize(CGSizeMake(<span class="number">640</span>, <span class="number">960</span>), [[UIScreen mainScreen] currentMode].size) : NO)</div></pre></td></tr></table></figure>
-<h5 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h5><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//带有RGBA的颜色设置</span></div><div class="line">#define COLOR(R, G, B, A) [UIColor colorWithRed:R/<span class="number">255.0</span> <span class="built_in">green</span>:G/<span class="number">255.0</span> <span class="built_in">blue</span>:B/<span class="number">255.0</span> <span class="built_in">alpha</span>:A]</div><div class="line">#define RandomColor [UIColor colorWithRed:arc4random_uniform(<span class="number">256</span>)/<span class="number">255.0</span> <span class="built_in">green</span>:arc4random_uniform(<span class="number">256</span>)/<span class="number">255.0</span> <span class="built_in">blue</span>:arc4random_uniform(<span class="number">256</span>)/<span class="number">255.0</span> <span class="built_in">alpha</span>:<span class="number">1.0</span>]</div></pre></td></tr></table></figure>
-<h5 id="强弱引用"><a href="#强弱引用" class="headerlink" title="强弱引用"></a>强弱引用</h5><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define LRWeakSelf(<span class="class"><span class="keyword">type</span>)  <span class="title">__weak</span> <span class="title">typeof</span></span>(<span class="class"><span class="keyword">type</span>) <span class="title">weak</span>##<span class="title">type</span> </span>= <span class="class"><span class="keyword">type</span>;</span></div><div class="line">#define LRStrongSelf(<span class="class"><span class="keyword">type</span>)  <span class="title">__strong</span> <span class="title">typeof</span></span>(<span class="class"><span class="keyword">type</span>) <span class="title">type</span> </span>= weak##<span class="class"><span class="keyword">type</span>;</span></div></pre></td></tr></table></figure>
-<h5 id="圆角边框"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h5><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#define LRViewBorderRadius(View, Radius, Width, Color)<span class="tag">\<span class="name"></span></span></div><div class="line"><span class="tag">\<span class="name"></span></span></div><div class="line"><span class="string">[View.layer setCornerRadius:(Radius)]</span>;<span class="tag">\<span class="name"></span></span></div><div class="line"><span class="string">[View.layer setMasksToBounds:YES]</span>;<span class="tag">\<span class="name"></span></span></div><div class="line"><span class="string">[View.layer setBorderWidth:(Width)]</span>;<span class="tag">\<span class="name"></span></span></div><div class="line"><span class="string">[View.layer setBorderColor:[Color CGColor]</span>]</div></pre></td></tr></table></figure>
-<h5 id="模拟器真机"><a href="#模拟器真机" class="headerlink" title="模拟器真机"></a>模拟器真机</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断是不是iOS系统，如果是iOS系统在真机和模拟器输出都是YES</span></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> TARGET_OS_IPHONE  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">   </div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> (TARGET_IPHONE_SIMULATOR)    </span></div><div class="line">          <span class="comment">// 在模拟器的情况下</span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">         <span class="comment">// 在真机情况下</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<h5 id="沙河目录"><a href="#沙河目录" class="headerlink" title="沙河目录"></a>沙河目录</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取temp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathTemp NSTemporaryDirectory() </span></div><div class="line">   </div><div class="line"><span class="comment">//获取沙盒 Document</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] </span></div><div class="line">   </div><div class="line"><span class="comment">//获取沙盒 Cache</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]</span></div></pre></td></tr></table></figure>
-<p>主要参考链接:<a href="https://onevcat.com/2014/01/black-magic-in-macro/" target="_blank" rel="external">宏定义的黑魔法</a>, <a href="http://blog.csdn.net/songrotek/article/details/8929963" target="_blank" rel="external">iOS开发 高级：使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</a></p>
+<pre><code>//Another wrong version of NSLog
+#define NSLog(format, ...)   {
+                               fprintf(stderr, &quot;&lt;%s : %d&gt; %s\n&quot;,                                           \
+                               [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+                               __LINE__, __func__);                                                        \
+                               (NSLog)((format), ##__VA_ARGS__);                                           \
+                               fprintf(stderr, &quot;-------\n&quot;);                                               \
+                             }
+</code></pre><p>这里用到了三个预定义宏，和刚才的<code>__COUNTER__</code>类似，预定义宏的行为是由编译器指定的。<code>__FILE__</code>返回当前文件的绝对路径，<code>__LINE__</code>返回展开该宏时在文件中的行数，<code>__func__</code>是改宏所在scope的函数名称。我们在做Log输出时如果带上这这三个参数，便可以加快解读Log，迅速定位</p>
+<h3 id="chang-yong-de-hong-ding-yi"><a href="#常用的宏定义" class="headerlink" title="常用的宏定义"></a>常用的宏定义</h3><h5 id="shu-chu-rect-size-he-point-de-hong"><a href="#输出rect，size和point的宏" class="headerlink" title="输出rect，size和point的宏"></a>输出rect，size和point的宏</h5><pre><code>#define NSLogRect(rect) NSLog(@&quot;%s x:%.4f, y:%.4f, w:%.4f, h:%.4f&quot;, #rect, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
+#define NSLogSize(size) NSLog(@&quot;%s w:%.4f, h:%.4f&quot;, #size, size.width, size.height)
+#define NSLogPoint(point) NSLog(@&quot;%s x:%.4f, y:%.4f&quot;, #point, point.x, point.y)
+</code></pre><h5 id="huo-qu-ping-mu-kuan-du-gao-du"><a href="#获取屏幕-宽度、高度" class="headerlink" title="获取屏幕 宽度、高度"></a>获取屏幕 宽度、高度</h5><pre><code>#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREENH_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+</code></pre><h5 id="xi-tong-ban-ben"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h5><pre><code>#define IOS10_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 10.0 )
+#define IOS9_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 9.0  )
+#define IOS8_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 8.0 )
+</code></pre><h5 id="chi-cun"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h5><pre><code>#define IS_SCREEN_55_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_SCREEN_47_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_SCREEN_4_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_SCREEN_35_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+</code></pre><h5 id="yan-se"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h5><pre><code>//带有RGBA的颜色设置
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+</code></pre><h5 id="qiang-ruo-yin-yong"><a href="#强弱引用" class="headerlink" title="强弱引用"></a>强弱引用</h5><pre><code>#define LRWeakSelf(type)  __weak typeof(type) weak##type = type;
+#define LRStrongSelf(type)  __strong typeof(type) type = weak##type;
+</code></pre><h5 id="yuan-jiao-bian-kuang"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h5><pre><code>#define LRViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+</code></pre><h5 id="mo-ni-qi-zhen-ji"><a href="#模拟器真机" class="headerlink" title="模拟器真机"></a>模拟器真机</h5><pre><code>// 判断是不是iOS系统，如果是iOS系统在真机和模拟器输出都是YES
+#if TARGET_OS_IPHONE  
+#endif  
+
+#if (TARGET_IPHONE_SIMULATOR)    
+          // 在模拟器的情况下
+#else
+         // 在真机情况下
+#endif
+</code></pre><h5 id="sha-he-mu-lu"><a href="#沙河目录" class="headerlink" title="沙河目录"></a>沙河目录</h5><pre><code>//获取temp
+#define kPathTemp NSTemporaryDirectory() 
+
+//获取沙盒 Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] 
+
+//获取沙盒 Cache
+#define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+</code></pre><p>主要参考链接:<a href="https://onevcat.com/2014/01/black-magic-in-macro/">宏定义的黑魔法</a>, <a href="http://blog.csdn.net/songrotek/article/details/8929963">iOS开发 高级：使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</a></p>
 
   </section>
 
@@ -219,7 +273,7 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/02/09/runtimr之动态添加属性/" title="Runtimr之动态添加属性">Runtimr之动态添加属性</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/02/09/runtimr之动态添加属性/" title="runtimr之动态添加属性">runtimr之动态添加属性</a></h2>
                 <p class="excerpt">
                 
                 在很多时候,当我们创建类别的时候,想为类别添加属性,但由于苹果不支持直接为类别添加属性,为此我们感到烦恼~
@@ -234,7 +288,7 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2016/12/29/wifi密码破解/" title="Wifi密码破解">Wifi密码破解</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2016/12/29/wifi密码破解/" title="wifi密码破解">wifi密码破解</a></h2>
                 <p class="excerpt">
                 
                 那天回了老家,没有网络,真是回归自然~今天就来说说mac电脑如何如何破解wifi~让没有网络的你,可以偷别人家的wifi,想想就激动~
