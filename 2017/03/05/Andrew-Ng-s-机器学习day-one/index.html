@@ -240,16 +240,26 @@
       <img src="/images/mm_facetoface_collect_qrcode_1496197729424.png" title="微信打赏 Donate" height="150px" width="150"/>
       <span><center>微信支付</center></span>
       </div>
+
       <div class="wechatalipay_pay">
         <img src="/images/1496198044143.jpg" title="支付宝打赏 Donate" height="150px" width="150"/>
       <span><center>支付宝支付</center></span>
-  </div>      
-    
-    <span class="donate_txt">
-      你的赞赏就是我的动力~
-    </span>
+      </div>
+
+      <div class="wechatalipay_pay">
+        <img id="img_qr" src=""  title="微信分享 Donate" height="150px" width="150"/>
+
+         <script type="text/javascript">
+            var src ='https://api.qrserver.com/v1/create-qr-code/?data=https://blaceman.github.io/' + '2017/03/05/Andrew-Ng-s-机器学习day-one/'
+            var img = document.getElementById('img_qr')
+            img_qr.src = src;
+        </script>
+
+      <span><center>微信分享</center></span>
+      </div>
 
   </div>
+
   <!-- /donate guide -->
 
   <!-- donate script -->
