@@ -163,18 +163,18 @@
   </header>
 
   <section class="post">
-    <h5 id="yi-zhi-yi-lai-yong-hong-ding-yi-zhi-yong-liao-xie-ji-ben-de-dong-xi-li-ru-chang-liang-ding-yi-zui-duo-ye-jiu-shi-ding-yi-yi-ge-han-shu-hen-shao-guan-zhu-hong-ding-yi-gao-ji-de-yong-fa-jin-tian-jiu-shuo-yi-xia-mo-suo-yi-xia-gao-ji-yong-fa"><a href="#一直以来用宏定义只用了些基本的东西-例如常量定义-最多也就是定义一个函数-很少关注宏定义高级的用法-今天就说一下摸索一下高级用法" class="headerlink" title="一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~"></a>一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~</h5><h3 id="zhe-pian-wen-zhang-zhu-yao-shuo"><a href="#这篇文章主要说" class="headerlink" title="这篇文章主要说"></a>这篇文章主要说</h3><ul>
+    <h5 id="一直以来用宏定义只用了些基本的东西例如常量定义最多也就是定义一个函数很少关注宏定义高级的用法今天就说一下摸索一下高级用法~"><a href="#一直以来用宏定义只用了些基本的东西-例如常量定义-最多也就是定义一个函数-很少关注宏定义高级的用法-今天就说一下摸索一下高级用法" class="headerlink" title="一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~"></a>一直以来用宏定义只用了些基本的东西,例如常量定义,最多也就是定义一个函数,很少关注宏定义高级的用法,今天就说一下摸索一下高级用法~</h5><h3 id="这篇文章主要说"><a href="#这篇文章主要说" class="headerlink" title="这篇文章主要说"></a>这篇文章主要说</h3><ul>
 <li>宏定义的基本用法</li>
 <li>高级用法</li>
 <li>常用的宏定义</li>
 </ul>
 <p>C中的宏分为两类，对象宏(object-like macro)和函数宏(function-like macro)。</p>
-<h3 id="hong-ding-yi-de-ji-ben-yong-fa"><a href="#宏定义的基本用法" class="headerlink" title="宏定义的基本用法"></a>宏定义的基本用法</h3><h5 id="1-ding-yi-yi-ge-yuan-zhou-lu-dui-xiang-hong"><a href="#1-定义一个圆周率-对象宏" class="headerlink" title="1.定义一个圆周率(对象宏)"></a>1.定义一个圆周率(对象宏)</h5><pre><code>//This defines PI
+<h3 id="宏定义的基本用法"><a href="#宏定义的基本用法" class="headerlink" title="宏定义的基本用法"></a>宏定义的基本用法</h3><h5 id="1定义一个圆周率对象宏"><a href="#1-定义一个圆周率-对象宏" class="headerlink" title="1.定义一个圆周率(对象宏)"></a>1.定义一个圆周率(对象宏)</h5><pre><code>//This defines PI
 #define M_PI    3.14159265358979323846264338327950288
-</code></pre><h5 id="2-ding-yi-yi-ge-ping-fang-han-shu-han-shu-hong"><a href="#2-定义一个平方函数-函数宏" class="headerlink" title="2.定义一个平方函数(函数宏)"></a>2.定义一个平方函数(函数宏)</h5><pre><code>#define SQUARE(A) ((A) * (A))
+</code></pre><h5 id="2定义一个平方函数函数宏"><a href="#2-定义一个平方函数-函数宏" class="headerlink" title="2.定义一个平方函数(函数宏)"></a>2.定义一个平方函数(函数宏)</h5><pre><code>#define SQUARE(A) ((A) * (A))
 </code></pre><p>其实这并不是正确的写法,正确的写法应该使用GUN C 扩展来避免参数带运算符所带来的错误等</p>
 <pre><code>#define SQUARE(A) ({ __typeof__(A) __a = (A); __a * __a;})
-</code></pre><h3 id="gao-ji-yong-fa"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><h5 id="1-shou-xian-kan-kan-xi-tong-min-a-b"><a href="#1-首先看看系统MIN-A-B" class="headerlink" title="1.首先看看系统MIN(A,B)"></a>1.首先看看系统<code>MIN(A,B)</code></h5><pre><code>#define __NSX_PASTE__(A,B) A##B
+</code></pre><h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><h5 id="1首先看看系统minab"><a href="#1-首先看看系统MIN-A-B" class="headerlink" title="1.首先看看系统MIN(A,B)"></a>1.首先看看系统<code>MIN(A,B)</code></h5><pre><code>#define __NSX_PASTE__(A,B) A##B
 #if !defined(MIN)
     #define __NSMIN_IMPL__(A,B,L) ({ __typeof__(A) __NSX_PASTE__(__a,L) = (A); __typeof__(B) __NSX_PASTE__(__b,L) = (B); (__NSX_PASTE__(__a,L) &lt; __NSX_PASTE__(__b,L)) ? __NSX_PASTE__(__a,L) : __NSX_PASTE__(__b,L); })
     #define MIN(A,B) __NSMIN_IMPL__(A,B,__COUNTER__)
@@ -182,7 +182,7 @@
 </code></pre><p>这<code>MIN(A,B)</code>分为三部分,第一部分是<code>#define __NSX_PASTE__(A,B) A##B</code>,##的意思是将A和B连接起来的意思,而第二部分是带三个参数<code>#define __NSMIN_IMPL__(A,B,L)</code>参数A,B自然是输入参数,而L则是<code>__NSX_PASTE__(__a,L)</code>定义的连接<code>__a</code>和<code>L</code>的参数名,再看第三部分<code>#define MIN(A,B) __NSMIN_IMPL__(A,B,__COUNTER__)</code>,<code>__COUNTER__</code>是一个预定义的宏，这个值在编译过程中将从0开始计数，每次被调用时加1。明显这是保证构造独立的变量名称,大大避免了变量名相同而导致问题的可能性。<br><br>我们把上诉自己定义的<code>SQUARE(A)</code>变成最接近系统那样的写法</p>
 <pre><code>#define __SQUARE_IMPL__(A,L) ({ __typeof__(A) __NSX_PASTE__(__a,L) = (A); __NSX_PASTE__(__a,L) * __NSX_PASTE__(__a,L);})
 #define SQUARE(A) __square_IMPL__(A,__COUNTER__)
-</code></pre><h5 id="2-shi-yong-hong-ding-yi-macros-vaargs"><a href="#2-使用-宏定义macros-（-，-，…，-VAARGS" class="headerlink" title="2.使用 宏定义macros （#，##，…，__VAARGS)"></a>2.使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</h5><ul>
+</code></pre><h5 id="2使用-宏定义macros-__vaargs"><a href="#2-使用-宏定义macros-（-，-，…，-VAARGS" class="headerlink" title="2.使用 宏定义macros （#，##，…，__VAARGS)"></a>2.使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</h5><ul>
 <li>使用”#“预处理操作符来实现将宏中的参数转化为字符串</li>
 </ul>
 <pre><code>#define WARN_IF(EXP) \  
@@ -222,30 +222,30 @@ eprintf (&quot;success!\n&quot;)
                                fprintf(stderr, &quot;-------\n&quot;);                                               \
                              }
 </code></pre><p>这里用到了三个预定义宏，和刚才的<code>__COUNTER__</code>类似，预定义宏的行为是由编译器指定的。<code>__FILE__</code>返回当前文件的绝对路径，<code>__LINE__</code>返回展开该宏时在文件中的行数，<code>__func__</code>是改宏所在scope的函数名称。我们在做Log输出时如果带上这这三个参数，便可以加快解读Log，迅速定位</p>
-<h3 id="chang-yong-de-hong-ding-yi"><a href="#常用的宏定义" class="headerlink" title="常用的宏定义"></a>常用的宏定义</h3><h5 id="shu-chu-rect-size-he-point-de-hong"><a href="#输出rect，size和point的宏" class="headerlink" title="输出rect，size和point的宏"></a>输出rect，size和point的宏</h5><pre><code>#define NSLogRect(rect) NSLog(@&quot;%s x:%.4f, y:%.4f, w:%.4f, h:%.4f&quot;, #rect, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
+<h3 id="常用的宏定义"><a href="#常用的宏定义" class="headerlink" title="常用的宏定义"></a>常用的宏定义</h3><h5 id="输出rectsize和point的宏"><a href="#输出rect，size和point的宏" class="headerlink" title="输出rect，size和point的宏"></a>输出rect，size和point的宏</h5><pre><code>#define NSLogRect(rect) NSLog(@&quot;%s x:%.4f, y:%.4f, w:%.4f, h:%.4f&quot;, #rect, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
 #define NSLogSize(size) NSLog(@&quot;%s w:%.4f, h:%.4f&quot;, #size, size.width, size.height)
 #define NSLogPoint(point) NSLog(@&quot;%s x:%.4f, y:%.4f&quot;, #point, point.x, point.y)
-</code></pre><h5 id="huo-qu-ping-mu-kuan-du-gao-du"><a href="#获取屏幕-宽度、高度" class="headerlink" title="获取屏幕 宽度、高度"></a>获取屏幕 宽度、高度</h5><pre><code>#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+</code></pre><h5 id="获取屏幕-宽度-高度"><a href="#获取屏幕-宽度、高度" class="headerlink" title="获取屏幕 宽度、高度"></a>获取屏幕 宽度、高度</h5><pre><code>#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREENH_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-</code></pre><h5 id="xi-tong-ban-ben"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h5><pre><code>#define IOS10_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 10.0 )
+</code></pre><h5 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h5><pre><code>#define IOS10_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 10.0 )
 #define IOS9_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 9.0  )
 #define IOS8_OR_LATER        ( [[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 8.0 )
-</code></pre><h5 id="chi-cun"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h5><pre><code>#define IS_SCREEN_55_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+</code></pre><h5 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h5><pre><code>#define IS_SCREEN_55_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
 #define IS_SCREEN_47_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
 #define IS_SCREEN_4_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define IS_SCREEN_35_INCH    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
-</code></pre><h5 id="yan-se"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h5><pre><code>//带有RGBA的颜色设置
+</code></pre><h5 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h5><pre><code>//带有RGBA的颜色设置
 #define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
-</code></pre><h5 id="qiang-ruo-yin-yong"><a href="#强弱引用" class="headerlink" title="强弱引用"></a>强弱引用</h5><pre><code>#define LRWeakSelf(type)  __weak typeof(type) weak##type = type;
+</code></pre><h5 id="强弱引用"><a href="#强弱引用" class="headerlink" title="强弱引用"></a>强弱引用</h5><pre><code>#define LRWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define LRStrongSelf(type)  __strong typeof(type) type = weak##type;
-</code></pre><h5 id="yuan-jiao-bian-kuang"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h5><pre><code>#define LRViewBorderRadius(View, Radius, Width, Color)\
+</code></pre><h5 id="圆角边框"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h5><pre><code>#define LRViewBorderRadius(View, Radius, Width, Color)\
 \
 [View.layer setCornerRadius:(Radius)];\
 [View.layer setMasksToBounds:YES];\
 [View.layer setBorderWidth:(Width)];\
 [View.layer setBorderColor:[Color CGColor]]
-</code></pre><h5 id="mo-ni-qi-zhen-ji"><a href="#模拟器真机" class="headerlink" title="模拟器真机"></a>模拟器真机</h5><pre><code>// 判断是不是iOS系统，如果是iOS系统在真机和模拟器输出都是YES
+</code></pre><h5 id="模拟器真机"><a href="#模拟器真机" class="headerlink" title="模拟器真机"></a>模拟器真机</h5><pre><code>// 判断是不是iOS系统，如果是iOS系统在真机和模拟器输出都是YES
 #if TARGET_OS_IPHONE  
 #endif  
 
@@ -254,7 +254,7 @@ eprintf (&quot;success!\n&quot;)
 #else
          // 在真机情况下
 #endif
-</code></pre><h5 id="sha-he-mu-lu"><a href="#沙河目录" class="headerlink" title="沙河目录"></a>沙河目录</h5><pre><code>//获取temp
+</code></pre><h5 id="沙河目录"><a href="#沙河目录" class="headerlink" title="沙河目录"></a>沙河目录</h5><pre><code>//获取temp
 #define kPathTemp NSTemporaryDirectory() 
 
 //获取沙盒 Document
@@ -265,7 +265,103 @@ eprintf (&quot;success!\n&quot;)
 </code></pre><p>主要参考链接:<a href="https://onevcat.com/2014/01/black-magic-in-macro/">宏定义的黑魔法</a>, <a href="http://blog.csdn.net/songrotek/article/details/8929963">iOS开发 高级：使用 宏定义macros （#，##，…，__VA<em>ARGS</em>)</a></p>
 
   </section>
+  
+  <!-- css -->
+  <style type="text/css">
+      .center {
+          text-align: center;
+      }
+      .hidden {
+          display: none;
+      }
+    .donate_bar a.btn_donate{
+      display: inline-block;
+      width: 82px;
+      height: 82px;
+      background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+      _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
 
+      <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+           因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+         为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+         嵌入其它博客时不一定要它们。 -->
+      -webkit-transition: background 0s;
+      -moz-transition: background 0s;
+      -o-transition: background 0s;
+      -ms-transition: background 0s;
+      transition: background 0s;
+      <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+    }
+
+    .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+    .donate_bar .donate_txt {
+      display: block;
+      color: #9d9d9d;
+      font: 14px/2 "Microsoft Yahei";
+    }
+    .bold{ font-weight: bold; }
+    .wechatalipay_pay{ display:inline-block; }
+  </style>
+  <!-- /css -->
+
+    <!-- Donate Module -->
+    <div id="donate_module">
+
+  <!-- btn_donate & tips -->
+  <div id="donate_board" class="donate_bar center">
+    <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+      
+    
+  </div>
+  <!-- /btn_donate & tips -->
+
+  <!-- donate guide -->
+  <div id="donate_guide" class="donate_bar center hidden">
+
+  <br>-----------------------------------------------------------------------
+  <br>
+      <div class="wechatalipay_pay">
+      <img src="/images/mm_facetoface_collect_qrcode_1496197729424.png" title="微信打赏 Donate" height="150px" width="150"/>
+      <span><center>微信支付</center></span>
+      </div>
+      <div class="wechatalipay_pay">
+        <img src="/images/1496198044143.jpg" title="支付宝打赏 Donate" height="150px" width="150"/>
+      <span><center>支付宝支付</center></span>
+  </div>      
+    
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+
+  </div>
+  <!-- /donate guide -->
+
+  <!-- donate script -->
+  <script type="text/javascript">
+    document.getElementById('btn_donate').onclick = function() {
+      $('#donate_board').addClass('hidden');
+      $('#donate_guide').removeClass('hidden');
+    }
+
+    function donate_on_web(){
+      $('#donate').submit();
+        }
+
+    var original_window_onload = window.onload;
+        window.onload = function () {
+            if (original_window_onload) {
+                original_window_onload();
+            }
+            document.getElementById('donate_board_wdg').className = 'hidden';
+    }
+  </script>
+  <!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+   
 </article>
 <section class="read-more">
            
@@ -315,24 +411,28 @@ eprintf (&quot;success!\n&quot;)
 
             
 <section class="post-comments">
-  <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="https://blaceman.github.io/2017/01/03/iOS-宏定义/" data-title="iOS 宏定义那些事情" data-url="https://blaceman.github.io/2017/01/03/iOS-宏定义/"></div>
-  <!-- 多说评论框 end -->
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <div id="disqus_thread"></div>
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"blaceman"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-</section>
+      var disqus_shortname = 'blaceman'; 
+      
+  var disqus_identifier = '/2017/01/03/iOS-宏定义/';
+  var disqus_title = 'iOS 宏定义那些事情';
+  var disqus_url = 'https://blaceman.github.io/2017/01/03/iOS-宏定义/';
+  
 
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          //dsq.src = '/js/embed.js';
+          //将disqus使用https协议将大大提高显示速度
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          //dsq.src = 'https://a.disquscdn.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
 
             <footer class="footer">
     <span class="footer__copyright">

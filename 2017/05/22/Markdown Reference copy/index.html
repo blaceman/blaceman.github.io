@@ -894,7 +894,103 @@ header, .context-menu, .megamenu-content, footer {
 </body>
 </html>
   </section>
+  
+  <!-- css -->
+  <style type="text/css">
+      .center {
+          text-align: center;
+      }
+      .hidden {
+          display: none;
+      }
+    .donate_bar a.btn_donate{
+      display: inline-block;
+      width: 82px;
+      height: 82px;
+      background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+      _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
 
+      <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+           因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+         为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+         嵌入其它博客时不一定要它们。 -->
+      -webkit-transition: background 0s;
+      -moz-transition: background 0s;
+      -o-transition: background 0s;
+      -ms-transition: background 0s;
+      transition: background 0s;
+      <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+    }
+
+    .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+    .donate_bar .donate_txt {
+      display: block;
+      color: #9d9d9d;
+      font: 14px/2 "Microsoft Yahei";
+    }
+    .bold{ font-weight: bold; }
+    .wechatalipay_pay{ display:inline-block; }
+  </style>
+  <!-- /css -->
+
+    <!-- Donate Module -->
+    <div id="donate_module">
+
+  <!-- btn_donate & tips -->
+  <div id="donate_board" class="donate_bar center">
+    <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+      
+    
+  </div>
+  <!-- /btn_donate & tips -->
+
+  <!-- donate guide -->
+  <div id="donate_guide" class="donate_bar center hidden">
+
+  <br>-----------------------------------------------------------------------
+  <br>
+      <div class="wechatalipay_pay">
+      <img src="/images/mm_facetoface_collect_qrcode_1496197729424.png" title="微信打赏 Donate" height="150px" width="150"/>
+      <span><center>微信支付</center></span>
+      </div>
+      <div class="wechatalipay_pay">
+        <img src="/images/1496198044143.jpg" title="支付宝打赏 Donate" height="150px" width="150"/>
+      <span><center>支付宝支付</center></span>
+  </div>      
+    
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+
+  </div>
+  <!-- /donate guide -->
+
+  <!-- donate script -->
+  <script type="text/javascript">
+    document.getElementById('btn_donate').onclick = function() {
+      $('#donate_board').addClass('hidden');
+      $('#donate_guide').removeClass('hidden');
+    }
+
+    function donate_on_web(){
+      $('#donate').submit();
+        }
+
+    var original_window_onload = window.onload;
+        window.onload = function () {
+            if (original_window_onload) {
+                original_window_onload();
+            }
+            document.getElementById('donate_board_wdg').className = 'hidden';
+    }
+  </script>
+  <!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+   
 </article>
 <section class="read-more">
            
@@ -939,24 +1035,28 @@ header, .context-menu, .megamenu-content, footer {
 
             
 <section class="post-comments">
-  <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="https://blaceman.github.io/2017/05/22/Markdown Reference copy/" data-title="Markdown Reference copy" data-url="https://blaceman.github.io/2017/05/22/Markdown Reference copy/"></div>
-  <!-- 多说评论框 end -->
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <div id="disqus_thread"></div>
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"blaceman"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-</section>
+      var disqus_shortname = 'blaceman'; 
+      
+  var disqus_identifier = '/2017/05/22/Markdown Reference copy/';
+  var disqus_title = 'Markdown Reference copy';
+  var disqus_url = 'https://blaceman.github.io/2017/05/22/Markdown Reference copy/';
+  
 
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          //dsq.src = '/js/embed.js';
+          //将disqus使用https协议将大大提高显示速度
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          //dsq.src = 'https://a.disquscdn.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
 
             <footer class="footer">
     <span class="footer__copyright">

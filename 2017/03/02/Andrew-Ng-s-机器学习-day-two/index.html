@@ -163,20 +163,116 @@
   </header>
 
   <section class="post">
-    <h3 id="model-and-cost-function-mo-xing-yu-dai-jie-han-shu"><a href="#Model-and-Cost-Function-模型与代价函数" class="headerlink" title="Model and Cost Function(模型与代价函数)"></a>Model and Cost Function(模型与代价函数)</h3><h4 id="1-model-representation-mo-xing-biao-shi"><a href="#1-Model-Representation-模型表示" class="headerlink" title="1.Model Representation(模型表示):"></a>1.Model Representation(模型表示):</h4><p><img src="3.png" alt="3"></p>
-<h5 id="wei-liao-jian-li-jiang-lai-shi-yong-de-fu-hao-wo-men-jiang-shi-yong-x-i-lai-biao-shi-shu-ru-bian-liang-ye-cheng-wei-shu-ru-te-zheng-bing-qie-y-i-biao-shi-wo-men-shi-tu-yu-ce-de-shu-chu-huo-mu-biao-bian-liang-jie-ge-yi-dui-x-i-y-i-cheng-wei-xun-lian-ji-fu-hao-zhong-de-shang-biao-i-jin-jin-shi-xun-lian-ji-zhong-de-suo-yin-bing-qie-yu-qiu-mi-wu-guan-wo-men-huan-jiang-shi-yong-x-biao-shi-shu-ru-zhi-de-kong-jian-y-biao-shi-shu-chu-zhi-de-kong-jian"><a href="#为了建立将来使用的符号，我们将使用-x-i-来表示“输入”变量，也称为输入特征，并且y-i）表示我们试图预测的“输出”或目标变量（价格）。一对（x-（i）-，y-（i）-称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间" class="headerlink" title="为了建立将来使用的符号，我们将使用 x^(i) 来表示“输入”变量，也称为输入特征，并且y^(i）表示我们试图预测的“输出”或目标变量（价格）。一对（x ^ {（i）}，y ^ {（i）}称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间."></a>为了建立将来使用的符号，我们将使用 x^(i) 来表示“输入”变量，也称为输入特征，并且y^(i）表示我们试图预测的“输出”或目标变量（价格）。一对（x ^ {（i）}，y ^ {（i）}称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间.</h5><h5 id="wei-liao-geng-zheng-shi-di-miao-shu-jian-du-xue-xi-wen-ti-wo-men-de-mu-biao-shi-gei-ding-yi-ge-xun-lian-ji-xue-xi-han-shu-h-x-y-shi-de-h-x-shi-dui-yu-y-de-dui-ying-zhi-de-hao-yu-ce-qi-you-yu-li-shi-yuan-yin-gai-han-shu-h-cheng-wei-hypothesis-jia-she-cong-tu-xiang-shang-kan-guo-cheng-shi-zhe-yang-de"><a href="#为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis-假设-。从图像上看，过程是这样的" class="headerlink" title="为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis(假设)。从图像上看，过程是这样的"></a>为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis(假设)。从图像上看，过程是这样的</h5><h5 id="dang-wo-men-shi-tu-yu-ce-de-mu-biao-bian-liang-shi-lian-xu-de-li-ru-zai-wo-men-de-zhu-fang-shi-li-zhong-wo-men-jiang-xue-xi-wen-ti-cheng-wei-hui-gui-wen-ti-dang-y-ke-yi-zhi-qu-shao-liang-chi-san-zhi-shi-li-ru-ru-guo-gei-ding-ju-zhu-mian-ji-wo-men-xiang-yu-ce-zhu-zhai-shi-fang-zi-huan-shi-gong-yu-wo-men-cheng-zhi-wei-fen-lei-wen-ti"><a href="#当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。" class="headerlink" title="当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。"></a>当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。</h5><h5 id="ru-xia-tu-suo-shi-qi-zhong-m-wei-shu-ju-ji-de-ge-shu"><a href="#如下图所示-其中m为数据集的个数" class="headerlink" title="如下图所示:(其中m为数据集的个数)"></a>如下图所示:(其中m为数据集的个数)</h5><p><img src="2.png" alt="2"></p>
-<h4 id="2-cost-function"><a href="#2-Cost-Function" class="headerlink" title="2.Cost Function"></a>2.Cost Function</h4><p><img src="4.png" alt="4"></p>
-<h4 id="wo-men-you-yi-ge-xun-lian-ji-ke-neng-jiu-xiang-wo-zai-zhe-li-hui-zhi-de-wo-men-yao-zuo-de-jiu-shi-de-chu-th0-th1-zhe-liang-ge-can-shu-de-zhi-lai-rang-jia-she-han-shu-biao-shi-de-zhi-xian-jin-liang-di-yu-zhe-xie-shu-ju-dian-hen-hao-de-ni-he-ye-xu-jiu-xiang-zhe-li-de-zhe-tiao-xian-yi-yang-na-me-wo-men-ru-he-de-chu-th0-th1-de-zhi-lai-shi-ta-hen-hao-di-ni-he-shu-ju-de-ni-wo-men-de-xiang-fa-shi-wo-men-yao-xuan-ze-neng-shi-h-x-ye-jiu-shi-shu-ru-x-shi-wo-men-yu-ce-de-zhi-zui-jie-jin-gai-yang-ben-dui-ying-de-y-zhi-de-can-shu-th0-th1-suo-yi-zai-wo-men-de-xun-lian-ji-zhong-wo-men-hui-de-dao-yi-ding-shu-liang-de-yang-ben-wo-men-zhi-dao-x-biao-shi-mai-chu-na-suo-fang-zi-bing-qie-zhi-dao-zhe-suo-fang-zi-de-shi-ji-jie-ge-suo-yi-wo-men-yao-jin-liang-xuan-ze-can-shu-zhi-shi-de-zai-xun-lian-ji-zhong-gei-chu-xun-lian-ji-zhong-de-x-zhi-wo-men-neng-he-li-zhun-que-di-yu-ce-y-de-zhi-rang-wo-men-gei-chu-biao-zhun-de-ding-yi-zai-xian-xing-hui-gui-zhong-wo-men-yao-jie-jue-de-shi-yi-ge-zui-xiao-hua-wen-ti-suo-yi-wo-yao-xie-chu-guan-yu-th0-th1-de-zui-xiao-hua-er-qie-wo-xi-wang-zhe-ge-shi-zi-ji-qi-xiao-shi-ba"><a href="#我们有一个训练集-可能就像我在这里绘制的-我们要做的就是-得出θ0-θ1这两个参数的值-来让假设函数表示的直线-尽量地与这些数据点很好的拟合-也许就像这里的这条线一样-那么我们如何得出θ0-θ1的值-来使它很好地拟合数据的呢？我们的想法是-我们要选择-能使h-x-也就是-输入x时我们预测的值-最接近该样本对应的y值的参数θ0-θ1-所以-在我们的训练集中我们会得到一定数量的样本-我们知道x表示卖出哪所房子-并且知道这所房子的实际价格-所以-我们要尽量选择参数值-使得-在训练集中-给出训练集中的x值-我们能合理准确地预测y的值-让我们给出标准的定义-在线性回归中-我们要解决的是一个最小化问题-所以我要写出关于θ0-θ1的最小化-而且-我希望这个式子极其小-是吧" class="headerlink" title="我们有一个训练集 可能就像我在这里绘制的 我们要做的就是 得出θ0 θ1这两个参数的值 来让假设函数表示的直线 尽量地与这些数据点很好的拟合 也许就像这里的这条线一样 那么我们如何得出θ0 θ1的值 来使它很好地拟合数据的呢？我们的想法是 我们要选择 能使h(x) 也就是 输入x时我们预测的值 最接近该样本对应的y值的参数θ0 θ1 所以 在我们的训练集中我们会得到一定数量的样本 我们知道x表示卖出哪所房子 并且知道这所房子的实际价格 所以 我们要尽量选择参数值 使得 在训练集中 给出训练集中的x值 我们能合理准确地预测y的值 让我们给出标准的定义 在线性回归中 我们要解决的是一个最小化问题 所以我要写出关于θ0 θ1的最小化 而且 我希望这个式子极其小 是吧"></a>我们有一个训练集 可能就像我在这里绘制的 我们要做的就是 得出θ0 θ1这两个参数的值 来让假设函数表示的直线 尽量地与这些数据点很好的拟合 也许就像这里的这条线一样 那么我们如何得出θ0 θ1的值 来使它很好地拟合数据的呢？我们的想法是 我们要选择 能使h(x) 也就是 输入x时我们预测的值 最接近该样本对应的y值的参数θ0 θ1 所以 在我们的训练集中我们会得到一定数量的样本 我们知道x表示卖出哪所房子 并且知道这所房子的实际价格 所以 我们要尽量选择参数值 使得 在训练集中 给出训练集中的x值 我们能合理准确地预测y的值 让我们给出标准的定义 在线性回归中 我们要解决的是一个最小化问题 所以我要写出关于θ0 θ1的最小化 而且 我希望这个式子极其小 是吧</h4><p><img src="7.png" alt="7"></p>
-<h5 id="wo-men-ke-yi-tong-guo-shi-yong-dai-jie-han-shu-lai-ce-liang-wo-men-de-jia-she-han-shu-de-zhun-que-xing-zhe-xu-yao-shi-yong-lai-zi-x-de-shu-ru-he-shi-ji-shu-chu-y-de-jia-she-de-suo-you-jie-guo-de-ping-jun-chai-shi-ji-shang-shi-ping-jun-de-geng-hao-de-ban-ben"><a href="#我们可以通过使用代价函数来测量我们的假设函数的准确性。-这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。" class="headerlink" title="我们可以通过使用代价函数来测量我们的假设函数的准确性。 这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。"></a>我们可以通过使用代价函数来测量我们的假设函数的准确性。 这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。</h5><h5 id="wei-liao-jiang-ta-fen-kai-ta-shi-1-2-x-qi-zhong-x-shi-hth-xi-yi-de-ping-fang-de-ping-jun-zhi-huo-zhe-shi-yu-ce-zhi-he-shi-ji-zhi-zhi-jian-de-chai"><a href="#为了将它分开，它是1-2-×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。" class="headerlink" title="为了将它分开，它是1/2 -×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。"></a>为了将它分开，它是1/2 -×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。</h5><h5 id="gai-han-shu-ling-wai-cheng-wei-ping-fang-wu-chai-han-shu-huo-jun-fang-wu-chai-wei-liao-fang-bian-ji-suan-ti-du-xia-jiang-ping-jun-zhi-bei-jian-ban-1-2-yin-wei-ping-fang-han-shu-de-dao-shu-xiang-jiang-di-xiao-1-2-xia-tu-zong-jie-liao-dai-jie-han-shu-de-zuo-yong"><a href="#该函数另外称为“平方误差函数”或“均方误差”。-为了方便计算梯度下降，平均值被减半（1-2），因为平方函数的导数项将抵消1-2。-下图总结了代价函数的作用：" class="headerlink" title="该函数另外称为“平方误差函数”或“均方误差”。 为了方便计算梯度下降，平均值被减半（1/2），因为平方函数的导数项将抵消1/2。 下图总结了代价函数的作用："></a>该函数另外称为“平方误差函数”或“均方误差”。 为了方便计算梯度下降，平均值被减半（1/2），因为平方函数的导数项将抵消1/2。 下图总结了代价函数的作用：</h5><p><img src="6.png" alt="6"></p>
-<h4 id="3-cost-function-intuition-i-theta0-wei-0"><a href="#3-Cost-Function-Intuition-I-theta0-为0" class="headerlink" title="3.Cost Function - Intuition I(theta0 为0)"></a>3.Cost Function - Intuition I(theta0 为0)</h4><h5 id="zhi-guan-de-biao-shi-wo-men-jiang-jian-li-x-y-zuo-biao-yong-yi-tiao-jin-ke-neng-tong-guo-suo-you-shu-ju-ji-de-zhi-xian"><a href="#直观的表示-我们将建立-x-y-坐标-用一条尽可能通过所有数据集的直线" class="headerlink" title="直观的表示,我们将建立(x,y)坐标,用一条尽可能通过所有数据集的直线"></a>直观的表示,我们将建立(x,y)坐标,用一条尽可能通过所有数据集的直线</h5><h5 id="wo-men-de-mu-biao-shi-huo-de-zui-hao-de-xian-zui-jia-ke-neng-de-xian-jiang-shi-zhe-yang-de-shi-de-san-she-dian-yu-xian-de-ping-jun-ping-fang-chui-zhi-ju-chi-jiang-shi-zui-xiao-de-li-xiang-qing-kuang-xia-xian-ying-gai-tong-guo-wo-men-xun-lian-shu-ju-ji-de-suo-you-dian-zai-zhe-chong-qing-kuang-xia-j-theta-0-theta-1-de-zhi-jiang-wei-0-yi-xia-shi-li-xian-shi-liao-wo-men-de-dai-jie-han-shu-wei-0-de-li-xiang-qing-kuang"><a href="#我们的目标是获得最好的线。-最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。-理想情况下，线应该通过我们训练数据集的所有点。-在这种情况下，-J（-theta-0，-theta-1）-的值将为0-以下示例显示了我们的代价函数为0的理想情况。" class="headerlink" title="我们的目标是获得最好的线。 最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。 理想情况下，线应该通过我们训练数据集的所有点。 在这种情况下，$$ J（\ theta_0，\ theta_1）$$的值将为0.以下示例显示了我们的代价函数为0的理想情况。"></a>我们的目标是获得最好的线。 最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。 理想情况下，线应该通过我们训练数据集的所有点。 在这种情况下，$$ J（\ theta_0，\ theta_1）$$的值将为0.以下示例显示了我们的代价函数为0的理想情况。</h5><p><img src="8.png" alt="8"></p>
-<h5 id="dang-theta-1-1-shi-wo-men-de-dao-de-xie-lu-wei-1-ta-tong-guo-mo-xing-zhong-de-mei-ge-shu-ju-dian-xiang-fan-dang-theta-1-0-5-shi-wo-men-kan-dao-cong-wo-men-de-ni-he-dao-shu-ju-dian-de-chui-zhi-ju-chi-zeng-jia"><a href="#当-theta-1-1-时，我们得到的斜率为1，它通过模型中的每个数据点。-相反，当-theta-1-0-5-时，我们看到从我们的拟合到数据点的垂直距离增加。" class="headerlink" title="当$$ \ theta_1 = 1 $$时，我们得到的斜率为1，它通过模型中的每个数据点。 相反，当$$ \ theta_1 = 0.5 $$时，我们看到从我们的拟合到数据点的垂直距离增加。"></a>当$$ \ theta_1 = 1 $$时，我们得到的斜率为1，它通过模型中的每个数据点。 相反，当$$ \ theta_1 = 0.5 $$时，我们看到从我们的拟合到数据点的垂直距离增加。</h5><p><img src="9.png" alt="9"></p>
-<h5 id="zhe-jiang-wo-men-de-dai-jie-han-shu-zeng-jia-dao-0-58-hui-zhi-qi-ta-ji-ge-dian-ke-de-dao-yi-xia-tu-biao"><a href="#这将我们的代价函数增加到-0-58。-绘制其他几个点可得到以下图表：" class="headerlink" title="这将我们的代价函数增加到 0.58。 绘制其他几个点可得到以下图表："></a>这将我们的代价函数增加到 0.58。 绘制其他几个点可得到以下图表：</h5><p><img src="10.png" alt="10"></p>
-<h4 id="4-cost-function-intuition-ii-theta-0-bu-wei-0"><a href="#4-Cost-Function-Intuition-II-theta-0-不为0" class="headerlink" title="4. Cost Function - Intuition II(theta_0 不为0)"></a>4. Cost Function - Intuition II(theta_0 不为0)</h4><h5 id="deng-gao-xian-tu-shi-bao-han-xu-duo-lun-kuo-xian-de-tu-liang-ge-ke-bian-han-shu-de-lun-kuo-xian-zai-tong-yi-xian-de-suo-you-dian-chu-ju-you-heng-ding-zhi-zhe-yang-de-tu-de-shi-li-shi-xia-mian-de-yi-ge"><a href="#等高线图是包含许多轮廓线的图。-两个可变函数的轮廓线在同一线的所有点处具有恒定值。-这样的图的示例是下面的一个。" class="headerlink" title="等高线图是包含许多轮廓线的图。 两个可变函数的轮廓线在同一线的所有点处具有恒定值。 这样的图的示例是下面的一个。"></a>等高线图是包含许多轮廓线的图。 两个可变函数的轮廓线在同一线的所有点处具有恒定值。 这样的图的示例是下面的一个。</h5><p><img src="11.png" alt="11"></p>
-<h5 id="ren-he-yan-se-yan-zhao-yuan-ren-men-jiang-huo-de-du-shi-xiang-tong-de-dai-jie-han-shu-zhi-li-ru-zai-shang-mian-de-lu-xian-shang-zhao-dao-de-san-ge-lu-dian-dui-yu-j-theta-0-theta-1-ju-you-xiang-tong-de-zhi-yin-ci-ta-men-yan-zhao-xiang-tong-de-xian-zhao-dao-dang-theta-0-800-he-theta-1-0-15-shi-yuan-quan-x-xian-shi-zuo-ce-tu-xing-de-cheng-ben-han-shu-de-zhi-qu-ling-yi-ge-h-x-bing-hui-zhi-qi-deng-zhi-xian-tu-de-dao-yi-xia-tu-biao"><a href="#任何颜色沿着“圆”，人们将获得都是相同的代价函数值。-例如，在上面的绿线上找到的三个绿点对于-J（-theta-0，-theta-1）-具有相同的值，因此，它们沿着相同的线找到。-当-theta-0-800和-theta-1-0-15时，圆圈x显示左侧图形的成本函数的值。-取另一个h（x）并绘制其等值线图，得到以下图表：" class="headerlink" title="任何颜色沿着“圆”，人们将获得都是相同的代价函数值。 例如，在上面的绿线上找到的三个绿点对于$$ J（\ theta_0，\ theta_1）$$具有相同的值，因此，它们沿着相同的线找到。 当$$ \ theta_0 $$ = 800和$$ \ theta_1 $$ = -0.15时，圆圈x显示左侧图形的成本函数的值。 取另一个h（x）并绘制其等值线图，得到以下图表："></a>任何颜色沿着“圆”，人们将获得都是相同的代价函数值。 例如，在上面的绿线上找到的三个绿点对于$$ J（\ theta_0，\ theta_1）$$具有相同的值，因此，它们沿着相同的线找到。 当$$ \ theta_0 $$ = 800和$$ \ theta_1 $$ = -0.15时，圆圈x显示左侧图形的成本函数的值。 取另一个h（x）并绘制其等值线图，得到以下图表：</h5><p><img src="12.png" alt="12"></p>
-<h5 id="dang-theta-0-360-he-theta-1-0-shi-lun-kuo-tu-zhong-de-j-theta-0-theta-1-de-zhi-geng-jie-jin-zhong-xin-cong-er-jiang-di-dai-jie-han-shu-wu-chai-xian-zai-gei-wo-men-de-jia-she-han-shu-shao-wei-zheng-de-xie-lu-dao-zhi-geng-hao-de-shu-ju-ni-he"><a href="#当-theta-0-360和-theta-1-0时，轮廓图中的-J（-theta-0，-theta-1）-的值更接近中心，从而降低代价函数误差。-现在给我们的假设函数稍微正的斜率导致更好的数据拟合。" class="headerlink" title="当$$ \ theta_0 $$ = 360和$$ \ theta_1 $$ = 0时，轮廓图中的$$ J（\ theta_0，\ theta_1）$$的值更接近中心，从而降低代价函数误差。 现在给我们的假设函数稍微正的斜率导致更好的数据拟合。"></a>当$$ \ theta_0 $$ = 360和$$ \ theta_1 $$ = 0时，轮廓图中的$$ J（\ theta_0，\ theta_1）$$的值更接近中心，从而降低代价函数误差。 现在给我们的假设函数稍微正的斜率导致更好的数据拟合。</h5><p><img src="13.png" alt="13"></p>
-<h5 id="shang-mian-de-tu-biao-jin-ke-neng-zui-xiao-hua-liao-dai-jie-han-shu-yin-ci-theta-1-he-theta-0-de-jie-guo-fen-bie-qu-xiang-yu-da-yue-0-12-he-250-zai-you-bian-de-tu-xing-shang-hui-zhi-zhe-xie-zhi-si-hu-jiang-wo-men-de-dian-fang-zai-zui-nei-quan-de-zhong-xin"><a href="#上面的图表尽可能最小化了代价函数，因此，-theta-1-和-theta-0-的结果分别趋向于大约0-12和250。-在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。" class="headerlink" title="上面的图表尽可能最小化了代价函数，因此，$$ \ theta_1 $$和$$ \ theta_0 $$的结果分别趋向于大约0.12和250。 在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。"></a>上面的图表尽可能最小化了代价函数，因此，$$ \ theta_1 $$和$$ \ theta_0 $$的结果分别趋向于大约0.12和250。 在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。</h5>
+    <h3 id="model-and-cost-function模型与代价函数"><a href="#Model-and-Cost-Function-模型与代价函数" class="headerlink" title="Model and Cost Function(模型与代价函数)"></a>Model and Cost Function(模型与代价函数)</h3><h4 id="1model-representation模型表示"><a href="#1-Model-Representation-模型表示" class="headerlink" title="1.Model Representation(模型表示):"></a>1.Model Representation(模型表示):</h4><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/3.png" alt="3"></p>
+<h5 id="为了建立将来使用的符号我们将使用-xi-来表示输入变量也称为输入特征并且yi表示我们试图预测的输出或目标变量价格-一对x-iy-i称为训练集符号中的上标i仅仅是训练集中的索引并且与求幂无关-我们还将使用x表示输入值的空间y表示输出值的空间"><a href="#为了建立将来使用的符号，我们将使用-x-i-来表示“输入”变量，也称为输入特征，并且y-i）表示我们试图预测的“输出”或目标变量（价格）。一对（x-（i）-，y-（i）-称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间" class="headerlink" title="为了建立将来使用的符号，我们将使用 x^(i) 来表示“输入”变量，也称为输入特征，并且y^(i）表示我们试图预测的“输出”或目标变量（价格）。一对（x ^ {（i）}，y ^ {（i）}称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间."></a>为了建立将来使用的符号，我们将使用 x^(i) 来表示“输入”变量，也称为输入特征，并且y^(i）表示我们试图预测的“输出”或目标变量（价格）。一对（x ^ {（i）}，y ^ {（i）}称为训练集，符号中的上标“（i）”仅仅是训练集中的索引，并且与求幂无关。我们还将使用X表示输入值的空间，Y表示输出值的空间.</h5><h5 id="为了更正式地描述监督学习问题我们的目标是给定一个训练集学习函数hxy使得hx是对于y的对应值的好预测器-由于历史原因该函数h称为hypothesis假设-从图像上看过程是这样的"><a href="#为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis-假设-。从图像上看，过程是这样的" class="headerlink" title="为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis(假设)。从图像上看，过程是这样的"></a>为了更正式地描述监督学习问题，我们的目标是，给定一个训练集，学习函数h：X→Y，使得h（x）是对于y的对应值的“好”预测器。由于历史原因，该函数h称为hypothesis(假设)。从图像上看，过程是这样的</h5><h5 id="当我们试图预测的目标变量是连续的例如在我们的住房示例中我们将学习问题称为回归问题-当y可以只取少量离散值时例如如果给定居住面积我们想预测住宅是房子还是公寓我们称之为分类问题"><a href="#当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。" class="headerlink" title="当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。"></a>当我们试图预测的目标变量是连续的，例如在我们的住房示例中，我们将学习问题称为回归问题。当y可以只取少量离散值时（例如，如果给定居住面积，我们想预测住宅是房子还是公寓，我们称之为分类问题）。</h5><h5 id="如下图所示其中m为数据集的个数"><a href="#如下图所示-其中m为数据集的个数" class="headerlink" title="如下图所示:(其中m为数据集的个数)"></a>如下图所示:(其中m为数据集的个数)</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/2.png" alt="2"></p>
+<h4 id="2cost-function"><a href="#2-Cost-Function" class="headerlink" title="2.Cost Function"></a>2.Cost Function</h4><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/4.png" alt="4"></p>
+<h4 id="我们有一个训练集-可能就像我在这里绘制的-我们要做的就是-得出θ0-θ1这两个参数的值-来让假设函数表示的直线-尽量地与这些数据点很好的拟合-也许就像这里的这条线一样-那么我们如何得出θ0-θ1的值-来使它很好地拟合数据的呢我们的想法是-我们要选择-能使hx-也就是-输入x时我们预测的值-最接近该样本对应的y值的参数θ0-θ1-所以-在我们的训练集中我们会得到一定数量的样本-我们知道x表示卖出哪所房子-并且知道这所房子的实际价格-所以-我们要尽量选择参数值-使得-在训练集中-给出训练集中的x值-我们能合理准确地预测y的值-让我们给出标准的定义-在线性回归中-我们要解决的是一个最小化问题-所以我要写出关于θ0-θ1的最小化-而且-我希望这个式子极其小-是吧"><a href="#我们有一个训练集-可能就像我在这里绘制的-我们要做的就是-得出θ0-θ1这两个参数的值-来让假设函数表示的直线-尽量地与这些数据点很好的拟合-也许就像这里的这条线一样-那么我们如何得出θ0-θ1的值-来使它很好地拟合数据的呢？我们的想法是-我们要选择-能使h-x-也就是-输入x时我们预测的值-最接近该样本对应的y值的参数θ0-θ1-所以-在我们的训练集中我们会得到一定数量的样本-我们知道x表示卖出哪所房子-并且知道这所房子的实际价格-所以-我们要尽量选择参数值-使得-在训练集中-给出训练集中的x值-我们能合理准确地预测y的值-让我们给出标准的定义-在线性回归中-我们要解决的是一个最小化问题-所以我要写出关于θ0-θ1的最小化-而且-我希望这个式子极其小-是吧" class="headerlink" title="我们有一个训练集 可能就像我在这里绘制的 我们要做的就是 得出θ0 θ1这两个参数的值 来让假设函数表示的直线 尽量地与这些数据点很好的拟合 也许就像这里的这条线一样 那么我们如何得出θ0 θ1的值 来使它很好地拟合数据的呢？我们的想法是 我们要选择 能使h(x) 也就是 输入x时我们预测的值 最接近该样本对应的y值的参数θ0 θ1 所以 在我们的训练集中我们会得到一定数量的样本 我们知道x表示卖出哪所房子 并且知道这所房子的实际价格 所以 我们要尽量选择参数值 使得 在训练集中 给出训练集中的x值 我们能合理准确地预测y的值 让我们给出标准的定义 在线性回归中 我们要解决的是一个最小化问题 所以我要写出关于θ0 θ1的最小化 而且 我希望这个式子极其小 是吧"></a>我们有一个训练集 可能就像我在这里绘制的 我们要做的就是 得出θ0 θ1这两个参数的值 来让假设函数表示的直线 尽量地与这些数据点很好的拟合 也许就像这里的这条线一样 那么我们如何得出θ0 θ1的值 来使它很好地拟合数据的呢？我们的想法是 我们要选择 能使h(x) 也就是 输入x时我们预测的值 最接近该样本对应的y值的参数θ0 θ1 所以 在我们的训练集中我们会得到一定数量的样本 我们知道x表示卖出哪所房子 并且知道这所房子的实际价格 所以 我们要尽量选择参数值 使得 在训练集中 给出训练集中的x值 我们能合理准确地预测y的值 让我们给出标准的定义 在线性回归中 我们要解决的是一个最小化问题 所以我要写出关于θ0 θ1的最小化 而且 我希望这个式子极其小 是吧</h4><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/7.png" alt="7"></p>
+<h5 id="我们可以通过使用代价函数来测量我们的假设函数的准确性-这需要使用来自x的输入和实际输出y的假设的所有结果的平均差实际上是平均的更好的版本"><a href="#我们可以通过使用代价函数来测量我们的假设函数的准确性。-这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。" class="headerlink" title="我们可以通过使用代价函数来测量我们的假设函数的准确性。 这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。"></a>我们可以通过使用代价函数来测量我们的假设函数的准确性。 这需要使用来自x的输入和实际输出y的假设的所有结果的平均差（实际上是平均的更好的版本）。</h5><h5 id="为了将它分开它是12-其中-x是hθxi-yi的平方的平均值或者是预测值和实际值之间的差"><a href="#为了将它分开，它是1-2-×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。" class="headerlink" title="为了将它分开，它是1/2 -×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。"></a>为了将它分开，它是1/2 -×，其中-x是hθ（xi）-yi的平方的平均值，或者是预测值和实际值之间的差。</h5><h5 id="该函数另外称为平方误差函数或均方误差-为了方便计算梯度下降平均值被减半12因为平方函数的导数项将抵消12-下图总结了代价函数的作用"><a href="#该函数另外称为“平方误差函数”或“均方误差”。-为了方便计算梯度下降，平均值被减半（1-2），因为平方函数的导数项将抵消1-2。-下图总结了代价函数的作用：" class="headerlink" title="该函数另外称为“平方误差函数”或“均方误差”。 为了方便计算梯度下降，平均值被减半（1/2），因为平方函数的导数项将抵消1/2。 下图总结了代价函数的作用："></a>该函数另外称为“平方误差函数”或“均方误差”。 为了方便计算梯度下降，平均值被减半（1/2），因为平方函数的导数项将抵消1/2。 下图总结了代价函数的作用：</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/6.png" alt="6"></p>
+<h4 id="3cost-function-intuition-itheta0-为0"><a href="#3-Cost-Function-Intuition-I-theta0-为0" class="headerlink" title="3.Cost Function - Intuition I(theta0 为0)"></a>3.Cost Function - Intuition I(theta0 为0)</h4><h5 id="直观的表示我们将建立xy坐标用一条尽可能通过所有数据集的直线"><a href="#直观的表示-我们将建立-x-y-坐标-用一条尽可能通过所有数据集的直线" class="headerlink" title="直观的表示,我们将建立(x,y)坐标,用一条尽可能通过所有数据集的直线"></a>直观的表示,我们将建立(x,y)坐标,用一条尽可能通过所有数据集的直线</h5><h5 id="我们的目标是获得最好的线-最佳可能的线将是这样的使得散射点与线的平均平方垂直距离将是最小的-理想情况下线应该通过我们训练数据集的所有点-在这种情况下-j-theta_0-theta_1的值将为0以下示例显示了我们的代价函数为0的理想情况"><a href="#我们的目标是获得最好的线。-最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。-理想情况下，线应该通过我们训练数据集的所有点。-在这种情况下，-J（-theta-0，-theta-1）-的值将为0-以下示例显示了我们的代价函数为0的理想情况。" class="headerlink" title="我们的目标是获得最好的线。 最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。 理想情况下，线应该通过我们训练数据集的所有点。 在这种情况下，$$ J（\ theta_0，\ theta_1）$$的值将为0.以下示例显示了我们的代价函数为0的理想情况。"></a>我们的目标是获得最好的线。 最佳可能的线将是这样的，使得散射点与线的平均平方垂直距离将是最小的。 理想情况下，线应该通过我们训练数据集的所有点。 在这种情况下，$$ J（\ theta_0，\ theta_1）$$的值将为0.以下示例显示了我们的代价函数为0的理想情况。</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/8.png" alt="8"></p>
+<h5 id="当-theta_1-1-时我们得到的斜率为1它通过模型中的每个数据点-相反当-theta_1-05-时我们看到从我们的拟合到数据点的垂直距离增加"><a href="#当-theta-1-1-时，我们得到的斜率为1，它通过模型中的每个数据点。-相反，当-theta-1-0-5-时，我们看到从我们的拟合到数据点的垂直距离增加。" class="headerlink" title="当$$ \ theta_1 = 1 $$时，我们得到的斜率为1，它通过模型中的每个数据点。 相反，当$$ \ theta_1 = 0.5 $$时，我们看到从我们的拟合到数据点的垂直距离增加。"></a>当$$ \ theta_1 = 1 $$时，我们得到的斜率为1，它通过模型中的每个数据点。 相反，当$$ \ theta_1 = 0.5 $$时，我们看到从我们的拟合到数据点的垂直距离增加。</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/9.png" alt="9"></p>
+<h5 id="这将我们的代价函数增加到-058-绘制其他几个点可得到以下图表"><a href="#这将我们的代价函数增加到-0-58。-绘制其他几个点可得到以下图表：" class="headerlink" title="这将我们的代价函数增加到 0.58。 绘制其他几个点可得到以下图表："></a>这将我们的代价函数增加到 0.58。 绘制其他几个点可得到以下图表：</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/10.png" alt="10"></p>
+<h4 id="4-cost-function-intuition-iitheta_0-不为0"><a href="#4-Cost-Function-Intuition-II-theta-0-不为0" class="headerlink" title="4. Cost Function - Intuition II(theta_0 不为0)"></a>4. Cost Function - Intuition II(theta_0 不为0)</h4><h5 id="等高线图是包含许多轮廓线的图-两个可变函数的轮廓线在同一线的所有点处具有恒定值-这样的图的示例是下面的一个"><a href="#等高线图是包含许多轮廓线的图。-两个可变函数的轮廓线在同一线的所有点处具有恒定值。-这样的图的示例是下面的一个。" class="headerlink" title="等高线图是包含许多轮廓线的图。 两个可变函数的轮廓线在同一线的所有点处具有恒定值。 这样的图的示例是下面的一个。"></a>等高线图是包含许多轮廓线的图。 两个可变函数的轮廓线在同一线的所有点处具有恒定值。 这样的图的示例是下面的一个。</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/11.png" alt="11"></p>
+<h5 id="任何颜色沿着圆人们将获得都是相同的代价函数值-例如在上面的绿线上找到的三个绿点对于-j-theta_0-theta_1具有相同的值因此它们沿着相同的线找到-当-theta_0-800和-theta_1-015时圆圈x显示左侧图形的成本函数的值-取另一个hx并绘制其等值线图得到以下图表"><a href="#任何颜色沿着“圆”，人们将获得都是相同的代价函数值。-例如，在上面的绿线上找到的三个绿点对于-J（-theta-0，-theta-1）-具有相同的值，因此，它们沿着相同的线找到。-当-theta-0-800和-theta-1-0-15时，圆圈x显示左侧图形的成本函数的值。-取另一个h（x）并绘制其等值线图，得到以下图表：" class="headerlink" title="任何颜色沿着“圆”，人们将获得都是相同的代价函数值。 例如，在上面的绿线上找到的三个绿点对于$$ J（\ theta_0，\ theta_1）$$具有相同的值，因此，它们沿着相同的线找到。 当$$ \ theta_0 $$ = 800和$$ \ theta_1 $$ = -0.15时，圆圈x显示左侧图形的成本函数的值。 取另一个h（x）并绘制其等值线图，得到以下图表："></a>任何颜色沿着“圆”，人们将获得都是相同的代价函数值。 例如，在上面的绿线上找到的三个绿点对于$$ J（\ theta_0，\ theta_1）$$具有相同的值，因此，它们沿着相同的线找到。 当$$ \ theta_0 $$ = 800和$$ \ theta_1 $$ = -0.15时，圆圈x显示左侧图形的成本函数的值。 取另一个h（x）并绘制其等值线图，得到以下图表：</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/12.png" alt="12"></p>
+<h5 id="当-theta_0-360和-theta_1-0时轮廓图中的-j-theta_0-theta_1的值更接近中心从而降低代价函数误差-现在给我们的假设函数稍微正的斜率导致更好的数据拟合"><a href="#当-theta-0-360和-theta-1-0时，轮廓图中的-J（-theta-0，-theta-1）-的值更接近中心，从而降低代价函数误差。-现在给我们的假设函数稍微正的斜率导致更好的数据拟合。" class="headerlink" title="当$$ \ theta_0 $$ = 360和$$ \ theta_1 $$ = 0时，轮廓图中的$$ J（\ theta_0，\ theta_1）$$的值更接近中心，从而降低代价函数误差。 现在给我们的假设函数稍微正的斜率导致更好的数据拟合。"></a>当$$ \ theta_0 $$ = 360和$$ \ theta_1 $$ = 0时，轮廓图中的$$ J（\ theta_0，\ theta_1）$$的值更接近中心，从而降低代价函数误差。 现在给我们的假设函数稍微正的斜率导致更好的数据拟合。</h5><p><img src="/2017/03/02/Andrew-Ng-s-机器学习-day-two/13.png" alt="13"></p>
+<h5 id="上面的图表尽可能最小化了代价函数因此-theta_1-和-theta_0-的结果分别趋向于大约012和250-在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心"><a href="#上面的图表尽可能最小化了代价函数，因此，-theta-1-和-theta-0-的结果分别趋向于大约0-12和250。-在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。" class="headerlink" title="上面的图表尽可能最小化了代价函数，因此，$$ \ theta_1 $$和$$ \ theta_0 $$的结果分别趋向于大约0.12和250。 在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。"></a>上面的图表尽可能最小化了代价函数，因此，$$ \ theta_1 $$和$$ \ theta_0 $$的结果分别趋向于大约0.12和250。 在右边的图形上绘制这些值似乎将我们的点放在最内圈的中心。</h5>
   </section>
+  
+  <!-- css -->
+  <style type="text/css">
+      .center {
+          text-align: center;
+      }
+      .hidden {
+          display: none;
+      }
+    .donate_bar a.btn_donate{
+      display: inline-block;
+      width: 82px;
+      height: 82px;
+      background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+      _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
 
+      <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+           因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+         为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+         嵌入其它博客时不一定要它们。 -->
+      -webkit-transition: background 0s;
+      -moz-transition: background 0s;
+      -o-transition: background 0s;
+      -ms-transition: background 0s;
+      transition: background 0s;
+      <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+    }
+
+    .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+    .donate_bar .donate_txt {
+      display: block;
+      color: #9d9d9d;
+      font: 14px/2 "Microsoft Yahei";
+    }
+    .bold{ font-weight: bold; }
+    .wechatalipay_pay{ display:inline-block; }
+  </style>
+  <!-- /css -->
+
+    <!-- Donate Module -->
+    <div id="donate_module">
+
+  <!-- btn_donate & tips -->
+  <div id="donate_board" class="donate_bar center">
+    <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+      
+    
+  </div>
+  <!-- /btn_donate & tips -->
+
+  <!-- donate guide -->
+  <div id="donate_guide" class="donate_bar center hidden">
+
+  <br>-----------------------------------------------------------------------
+  <br>
+      <div class="wechatalipay_pay">
+      <img src="/images/mm_facetoface_collect_qrcode_1496197729424.png" title="微信打赏 Donate" height="150px" width="150"/>
+      <span><center>微信支付</center></span>
+      </div>
+      <div class="wechatalipay_pay">
+        <img src="/images/1496198044143.jpg" title="支付宝打赏 Donate" height="150px" width="150"/>
+      <span><center>支付宝支付</center></span>
+  </div>      
+    
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+
+  </div>
+  <!-- /donate guide -->
+
+  <!-- donate script -->
+  <script type="text/javascript">
+    document.getElementById('btn_donate').onclick = function() {
+      $('#donate_board').addClass('hidden');
+      $('#donate_guide').removeClass('hidden');
+    }
+
+    function donate_on_web(){
+      $('#donate').submit();
+        }
+
+    var original_window_onload = window.onload;
+        window.onload = function () {
+            if (original_window_onload) {
+                original_window_onload();
+            }
+            document.getElementById('donate_board_wdg').className = 'hidden';
+    }
+  </script>
+  <!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+   
 </article>
 <section class="read-more">
            
@@ -217,24 +313,28 @@
 
             
 <section class="post-comments">
-  <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="https://blaceman.github.io/2017/03/02/Andrew-Ng-s-机器学习-day-two/" data-title="Andrew Ng&#39;s 机器学习 day two" data-url="https://blaceman.github.io/2017/03/02/Andrew-Ng-s-机器学习-day-two/"></div>
-  <!-- 多说评论框 end -->
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <div id="disqus_thread"></div>
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"blaceman"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-</section>
+      var disqus_shortname = 'blaceman'; 
+      
+  var disqus_identifier = '/2017/03/02/Andrew-Ng-s-机器学习-day-two/';
+  var disqus_title = 'Andrew Ng's 机器学习 day two';
+  var disqus_url = 'https://blaceman.github.io/2017/03/02/Andrew-Ng-s-机器学习-day-two/';
+  
 
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          //dsq.src = '/js/embed.js';
+          //将disqus使用https协议将大大提高显示速度
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          //dsq.src = 'https://a.disquscdn.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
 
             <footer class="footer">
     <span class="footer__copyright">

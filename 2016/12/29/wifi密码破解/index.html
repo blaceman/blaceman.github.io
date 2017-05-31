@@ -164,34 +164,130 @@
 
   <section class="post">
     <p>那天回了老家,没有网络,真是回归自然~今天就来说说mac电脑如何如何破解wifi~让没有网络的你,可以偷别人家的wifi,想想就激动~</p>
-<h5 id="shou-xian-lai-shou-ge"><a href="#首先来首歌" class="headerlink" title="首先来首歌"></a>首先来首歌</h5><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=116352&auto=1&height=66"></iframe>
+<h5 id="首先来首歌"><a href="#首先来首歌" class="headerlink" title="首先来首歌"></a>首先来首歌</h5><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=116352&auto=1&height=66"></iframe>
 
 
-<h3 id="wen-zhang-shuo-liao-yi-xia-ji-ge-fang-mian"><a href="#文章说了以下几个方面" class="headerlink" title="文章说了以下几个方面"></a>文章说了以下几个方面</h3><ul>
+<h3 id="文章说了以下几个方面"><a href="#文章说了以下几个方面" class="headerlink" title="文章说了以下几个方面"></a>文章说了以下几个方面</h3><ul>
 <li>安装aircrack</li>
 <li>利用aircrack 进行wifi抓包</li>
 <li>配合字典开始wifi破解</li>
 </ul>
-<h3 id="an-zhuang-aircrack"><a href="#安装aircrack" class="headerlink" title="安装aircrack"></a>安装aircrack</h3><h5 id="1-shou-xian-an-zhuang-homebrew"><a href="#1-首先安装homebrew" class="headerlink" title="1.首先安装homebrew"></a>1.首先安装homebrew</h5><pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre><h5 id="2-yong-homebrew-an-zhuang-aircrack"><a href="#2-用homebrew安装aircrack" class="headerlink" title="2.用homebrew安装aircrack"></a>2.用homebrew安装aircrack</h5><pre><code>brew install aircrack-ng
-</code></pre><h3 id="li-yong-aircrack-jin-xing-wifi-zhua-bao"><a href="#利用aircrack-进行wifi抓包" class="headerlink" title="利用aircrack 进行wifi抓包"></a>利用aircrack 进行wifi抓包</h3><h5 id="1-airport-jian-ce-dao-de-fu-jin-wifi-xin-xi"><a href="#1-airport-监测到的附近-wifi-信息" class="headerlink" title="1.airport 监测到的附近 wifi 信息"></a>1.airport 监测到的附近 wifi 信息</h5><pre><code>airport -s
+<h3 id="安装aircrack"><a href="#安装aircrack" class="headerlink" title="安装aircrack"></a>安装aircrack</h3><h5 id="1首先安装homebrew"><a href="#1-首先安装homebrew" class="headerlink" title="1.首先安装homebrew"></a>1.首先安装homebrew</h5><pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><h5 id="2用homebrew安装aircrack"><a href="#2-用homebrew安装aircrack" class="headerlink" title="2.用homebrew安装aircrack"></a>2.用homebrew安装aircrack</h5><pre><code>brew install aircrack-ng
+</code></pre><h3 id="利用aircrack-进行wifi抓包"><a href="#利用aircrack-进行wifi抓包" class="headerlink" title="利用aircrack 进行wifi抓包"></a>利用aircrack 进行wifi抓包</h3><h5 id="1airport-监测到的附近-wifi-信息"><a href="#1-airport-监测到的附近-wifi-信息" class="headerlink" title="1.airport 监测到的附近 wifi 信息"></a>1.airport 监测到的附近 wifi 信息</h5><pre><code>airport -s
 </code></pre><p>然后就能看到一下的信息</p>
-<p><img src="1.png" alt="wifi"></p>
+<p><img src="/2016/12/29/wifi密码破解/1.png" alt="wifi"></p>
 <p>SSID 是 wifi名称，RSSI 是信号强度，CHANNEL 是信道。</p>
-<h5 id="2-jie-zhao-tiao-yi-ge-xin-hao-qiang-de-jin-xing-zhua-bao"><a href="#2-接着挑一个信号强的进行抓包" class="headerlink" title="2.接着挑一个信号强的进行抓包"></a>2.接着挑一个信号强的进行抓包</h5><pre><code>sudo airport en1 sniff  1
+<h5 id="2接着挑一个信号强的进行抓包"><a href="#2-接着挑一个信号强的进行抓包" class="headerlink" title="2.接着挑一个信号强的进行抓包"></a>2.接着挑一个信号强的进行抓包</h5><pre><code>sudo airport en1 sniff  1
 </code></pre><p>其中en1是电脑的网卡,大部分就是en1 或en0,等待几分钟~</p>
-<h5 id="3-jie-zhao-qian-wang-tmp-wen-jian-jia-cha-kan-sheng-cheng-hou-zhui-wei-cap-de-bao-ran-hou-zai-zhuo-mian-xin-jian-yi-ge-wen-jian-jia-jia-she-wo-xin-jian-de-wen-jian-jia-ming-zi-wei-wifi-ba-zhua-dao-de-hou-zhui-cap-de-wen-jie-fang-jin-wen-jian-jia-li-mian-chong-xin-ming-ming-wei-01-cap"><a href="#3-接着前往-tmp文件夹查看生成后缀为-cap的包-然后再桌面新建一个文件夹-假设我新建的文件夹名字为wifi-把抓到的后缀-cap的问价放进文件夹里面-重新命名为01-cap" class="headerlink" title="3.接着前往/tmp文件夹查看生成后缀为.cap的包,然后再桌面新建一个文件夹(假设我新建的文件夹名字为wifi),把抓到的后缀.cap的问价放进文件夹里面,重新命名为01.cap."></a>3.接着前往<code>/tmp</code>文件夹查看生成后缀为.cap的包,然后再桌面新建一个文件夹(假设我新建的文件夹名字为wifi),把抓到的后缀.cap的问价放进文件夹里面,重新命名为01.cap.</h5><h3 id="pei-he-zi-dian-kai-shi-wifi-po-jie"><a href="#配合字典开始wifi破解" class="headerlink" title="配合字典开始wifi破解"></a>配合字典开始wifi破解</h3><h5 id="1-gu-ge-bai-du-zhao-dao-mi-ma-zi-dian"><a href="#1-谷歌-百度-找到密码字典" class="headerlink" title="1.谷歌(百度)找到密码字典"></a>1.谷歌(百度)找到密码字典</h5><h5 id="2-ba-zi-dian-ye-fang-jin-shang-shu-suo-chuang-jian-de-wifi-wen-jian-jia-zhong-chong-ming-ming-wei-01-text"><a href="#2-把字典也放进上述所创建的wifi文件夹中-重命名为01-text" class="headerlink" title="2.把字典也放进上述所创建的wifi文件夹中,重命名为01.text"></a>2.把字典也放进上述所创建的wifi文件夹中,重命名为01.text</h5><h5 id="3-zhong-duan-cd-dao-zhe-ge-wen-jian-jia-li-ran-hou-cha-kan-wifi-zhua-bao-qing-kuang"><a href="#3-终端cd-到这个文件夹里-然后查看wifi抓包情况" class="headerlink" title="3.终端cd 到这个文件夹里,然后查看wifi抓包情况"></a>3.终端cd 到这个文件夹里,然后查看wifi抓包情况</h5><pre><code>cd ~/Desktop/wifi
+<h5 id="3接着前往tmp文件夹查看生成后缀为cap的包然后再桌面新建一个文件夹假设我新建的文件夹名字为wifi把抓到的后缀cap的问价放进文件夹里面重新命名为01cap"><a href="#3-接着前往-tmp文件夹查看生成后缀为-cap的包-然后再桌面新建一个文件夹-假设我新建的文件夹名字为wifi-把抓到的后缀-cap的问价放进文件夹里面-重新命名为01-cap" class="headerlink" title="3.接着前往/tmp文件夹查看生成后缀为.cap的包,然后再桌面新建一个文件夹(假设我新建的文件夹名字为wifi),把抓到的后缀.cap的问价放进文件夹里面,重新命名为01.cap."></a>3.接着前往<code>/tmp</code>文件夹查看生成后缀为.cap的包,然后再桌面新建一个文件夹(假设我新建的文件夹名字为wifi),把抓到的后缀.cap的问价放进文件夹里面,重新命名为01.cap.</h5><h3 id="配合字典开始wifi破解"><a href="#配合字典开始wifi破解" class="headerlink" title="配合字典开始wifi破解"></a>配合字典开始wifi破解</h3><h5 id="1谷歌百度找到密码字典"><a href="#1-谷歌-百度-找到密码字典" class="headerlink" title="1.谷歌(百度)找到密码字典"></a>1.谷歌(百度)找到密码字典</h5><h5 id="2把字典也放进上述所创建的wifi文件夹中重命名为01text"><a href="#2-把字典也放进上述所创建的wifi文件夹中-重命名为01-text" class="headerlink" title="2.把字典也放进上述所创建的wifi文件夹中,重命名为01.text"></a>2.把字典也放进上述所创建的wifi文件夹中,重命名为01.text</h5><h5 id="3终端cd-到这个文件夹里然后查看wifi抓包情况"><a href="#3-终端cd-到这个文件夹里-然后查看wifi抓包情况" class="headerlink" title="3.终端cd 到这个文件夹里,然后查看wifi抓包情况"></a>3.终端cd 到这个文件夹里,然后查看wifi抓包情况</h5><pre><code>cd ~/Desktop/wifi
 aircrack-ng -w 01.txt 01.cap
-</code></pre><p><img src="4.png" alt="4"></p>
+</code></pre><p><img src="/2016/12/29/wifi密码破解/4.png" alt="4"></p>
 <p>其中,Encryption中（0 handshake）是抓包失败，（1 handshake）则是抓包成功。看到第几行抓包成功，则在「Index number of target network ?」后敲回车：第几行 例如(11) <br><br>如果cap文件内全是（0 handshake），就按 command + c 组合键退出。重新回到「sudo airport en1 sniff 1」这步进行监听抓包。抓包成功率受到 wifi 信号强弱、电脑与路由器距离远近、路由器是否正处在收发数据状态的影响。总之多试几次、监听时间适当延长些，可以大大提高成功率。<br><br>如果可以的话,会进入</p>
-<p><img src="2.png" alt="2"></p>
+<p><img src="/2016/12/29/wifi密码破解/2.png" alt="2"></p>
 <p>接下来等待破解结果就行了，中断破解过程可以直接按 command + c 组合键退出。破解过程所需时间长短受电脑硬件配置、字典体积大小的影响。如果01.txt字典破解失败，则可以换其它字典进行破解，直到破解成功。<br>使用一个好的字典是很重要的，一个9位的纯数字字典大概1G多，结果经过几个小时的破解，如果密码是987654321就很令人郁闷了，所以最好准备几个常用的wifi密码字典，可以大大提高成功率和节省时间。常用字典可以直接百度Google搜索下载。<br><br>如果成功了就会出现</p>
-<p><img src="3.jpg" alt="3"></p>
+<p><img src="/2016/12/29/wifi密码破解/3.jpg" alt="3"></p>
 <p>然而我却一直卡在抓包那里,一直没成功过,心塞~</p>
 <p>主要参考是<a href="http://chaishiwei.com/blog/562.html">这里</a></p>
 
   </section>
+  
+  <!-- css -->
+  <style type="text/css">
+      .center {
+          text-align: center;
+      }
+      .hidden {
+          display: none;
+      }
+    .donate_bar a.btn_donate{
+      display: inline-block;
+      width: 82px;
+      height: 82px;
+      background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+      _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
 
+      <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+           因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+         为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+         嵌入其它博客时不一定要它们。 -->
+      -webkit-transition: background 0s;
+      -moz-transition: background 0s;
+      -o-transition: background 0s;
+      -ms-transition: background 0s;
+      transition: background 0s;
+      <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+    }
+
+    .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+    .donate_bar .donate_txt {
+      display: block;
+      color: #9d9d9d;
+      font: 14px/2 "Microsoft Yahei";
+    }
+    .bold{ font-weight: bold; }
+    .wechatalipay_pay{ display:inline-block; }
+  </style>
+  <!-- /css -->
+
+    <!-- Donate Module -->
+    <div id="donate_module">
+
+  <!-- btn_donate & tips -->
+  <div id="donate_board" class="donate_bar center">
+    <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+      
+    
+  </div>
+  <!-- /btn_donate & tips -->
+
+  <!-- donate guide -->
+  <div id="donate_guide" class="donate_bar center hidden">
+
+  <br>-----------------------------------------------------------------------
+  <br>
+      <div class="wechatalipay_pay">
+      <img src="/images/mm_facetoface_collect_qrcode_1496197729424.png" title="微信打赏 Donate" height="150px" width="150"/>
+      <span><center>微信支付</center></span>
+      </div>
+      <div class="wechatalipay_pay">
+        <img src="/images/1496198044143.jpg" title="支付宝打赏 Donate" height="150px" width="150"/>
+      <span><center>支付宝支付</center></span>
+  </div>      
+    
+    <span class="donate_txt">
+      你的赞赏就是我的动力~
+    </span>
+
+  </div>
+  <!-- /donate guide -->
+
+  <!-- donate script -->
+  <script type="text/javascript">
+    document.getElementById('btn_donate').onclick = function() {
+      $('#donate_board').addClass('hidden');
+      $('#donate_guide').removeClass('hidden');
+    }
+
+    function donate_on_web(){
+      $('#donate').submit();
+        }
+
+    var original_window_onload = window.onload;
+        window.onload = function () {
+            if (original_window_onload) {
+                original_window_onload();
+            }
+            document.getElementById('donate_board_wdg').className = 'hidden';
+    }
+  </script>
+  <!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+   
 </article>
 <section class="read-more">
            
@@ -241,24 +337,28 @@ C中的宏分为两类，对象宏(object-like macro)和函数宏(function-like 
 
             
 <section class="post-comments">
-  <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="https://blaceman.github.io/2016/12/29/wifi密码破解/" data-title="wifi密码破解" data-url="https://blaceman.github.io/2016/12/29/wifi密码破解/"></div>
-  <!-- 多说评论框 end -->
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <div id="disqus_thread"></div>
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"blaceman"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-</section>
+      var disqus_shortname = 'blaceman'; 
+      
+  var disqus_identifier = '/2016/12/29/wifi密码破解/';
+  var disqus_title = 'wifi密码破解';
+  var disqus_url = 'https://blaceman.github.io/2016/12/29/wifi密码破解/';
+  
 
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          //dsq.src = '/js/embed.js';
+          //将disqus使用https协议将大大提高显示速度
+          dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+          //dsq.src = 'https://a.disquscdn.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
 
             <footer class="footer">
     <span class="footer__copyright">
