@@ -172,8 +172,7 @@
 <h5 id="其中m是训练集的大小θ0是将与θ1同时改变的常数xiyi是给定训练集数据的值"><a href="#其中m是训练集的大小，θ0是将与θ1同时改变的常数，xi，yi是给定训练集（数据）的值" class="headerlink" title="其中m是训练集的大小，θ0是将与θ1同时改变的常数，xi，yi是给定训练集（数据）的值"></a>其中m是训练集的大小，θ0是将与θ1同时改变的常数，xi，yi是给定训练集（数据）的值</h5><h5 id="注意我们已经将θj的两种情况分离为θ0和θ1的单独方程并且对于θ1由于导数我们在末端乘以xi-以下是单个示例的θj-jθ的推导"><a href="#注意，我们已经将θj的两种情况分离为θ0和θ1的单独方程-并且对于θ1，由于导数，我们在末端乘以xi。以下是单个示例的∂-∂θj-J-θ）的推导：" class="headerlink" title="注意，我们已经将θj的两种情况分离为θ0和θ1的单独方程;并且对于θ1，由于导数，我们在末端乘以xi。以下是单个示例的∂/∂θj J(θ）的推导："></a>注意，我们已经将θj的两种情况分离为θ0和θ1的单独方程;并且对于θ1，由于导数，我们在末端乘以xi。以下是单个示例的∂/∂θj J(θ）的推导：</h5><p><img src="/2017/03/09/Andrew-Ng-s-机器学习day-three/7.png" alt="7"></p>
 <h5 id="所有这一切的点是如果我们开始猜测我们的假设然后重复应用这些梯度下降方程我们的假设将变得越来越准确"><a href="#所有这一切的点是，如果我们开始猜测我们的假设，然后重复应用这些梯度下降方程，我们的假设将变得越来越准确。" class="headerlink" title="所有这一切的点是，如果我们开始猜测我们的假设，然后重复应用这些梯度下降方程，我们的假设将变得越来越准确。"></a>所有这一切的点是，如果我们开始猜测我们的假设，然后重复应用这些梯度下降方程，我们的假设将变得越来越准确。</h5><h5 id="因此这是对原始成本函数j的简单梯度下降-该方法查看每个步骤的整个训练集中的每个示例并且称为批量梯度下降-注意虽然梯度下降一般易受局部最小值的影响我们在这里提出的用于线性回归的优化问题只有一个全局的没有其他局部的最优的因此梯度下降总是收敛假设学习速率α不太大到全局最小值-实际上j是凸二次函数-这里是梯度下降的例子因为它运行以最小化二次函数"><a href="#因此，这是对原始成本函数J的简单梯度下降。该方法查看每个步骤的整个训练集中的每个示例，并且称为批量梯度下降。注意，虽然梯度下降一般易受局部最小值的影响，我们在这里提出的用于线性回归的优化问题只有一个全局的，没有其他局部的最优的-因此梯度下降总是收敛（假设学习速率α不太大）到全局最小值。实际上，J是凸二次函数。这里是梯度下降的例子，因为它运行以最小化二次函数。" class="headerlink" title="因此，这是对原始成本函数J的简单梯度下降。该方法查看每个步骤的整个训练集中的每个示例，并且称为批量梯度下降。注意，虽然梯度下降一般易受局部最小值的影响，我们在这里提出的用于线性回归的优化问题只有一个全局的，没有其他局部的最优的;因此梯度下降总是收敛（假设学习速率α不太大）到全局最小值。实际上，J是凸二次函数。这里是梯度下降的例子，因为它运行以最小化二次函数。"></a>因此，这是对原始成本函数J的简单梯度下降。该方法查看每个步骤的整个训练集中的每个示例，并且称为批量梯度下降。注意，虽然梯度下降一般易受局部最小值的影响，我们在这里提出的用于线性回归的优化问题只有一个全局的，没有其他局部的最优的;因此梯度下降总是收敛（假设学习速率α不太大）到全局最小值。实际上，J是凸二次函数。这里是梯度下降的例子，因为它运行以最小化二次函数。</h5><p><img src="/2017/03/09/Andrew-Ng-s-机器学习day-three/8.png" alt="8"></p>
 <h5 id="上面显示的椭圆是二次函数的轮廓-还示出了由梯度下降采取的轨迹其在4830处被初始化-图中的x用直线连接标记了梯度下降经过的连续值因为它收敛到最小值"><a href="#上面显示的椭圆是二次函数的轮廓。还示出了由梯度下降采取的轨迹，其在（48-30）处被初始化。图中的x（用直线连接）标记了梯度下降经过的连续值，因为它收敛到最小值。" class="headerlink" title="上面显示的椭圆是二次函数的轮廓。还示出了由梯度下降采取的轨迹，其在（48,30）处被初始化。图中的x（用直线连接）标记了梯度下降经过的连续值，因为它收敛到最小值。"></a>上面显示的椭圆是二次函数的轮廓。还示出了由梯度下降采取的轨迹，其在（48,30）处被初始化。图中的x（用直线连接）标记了梯度下降经过的连续值，因为它收敛到最小值。</h5>
-  </section>
-  
+     
   <!-- css -->
   <style type="text/css">
       .center {
@@ -281,7 +280,26 @@
 
 <!-- /Donate Module -->
    
-</article>
+
+    
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_more" data-cmd="more"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+</div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"",
+"bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},
+"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","tqq","renren"]}};
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+  </section>
+ </article>
 <section class="read-more">
            
     
@@ -317,8 +335,7 @@
    
   
 </section>
-
-            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 <script>
 var cloudTieConfig = {
@@ -331,19 +348,8 @@ var yunManualLoad = true;
 Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 </script>
 
-<div class="bdsharebuttonbox">
-<a href="#" class="bds_more" data-cmd="more"></a>
-<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"",
-"bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},
-"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","tqq","renren"]}};
-with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
+
+
             <footer class="footer">
     <span class="footer__copyright">
         本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
@@ -359,8 +365,6 @@ with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElemen
 </footer>
         </div>
     </div>
-
-    
 
      
 <script>
