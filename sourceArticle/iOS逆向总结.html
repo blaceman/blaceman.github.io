@@ -264,7 +264,7 @@
 <li>原理:利用Objective-C语言的runtime的特性，将存储在mach-O文件中的@interface和@protocol信息提取出来，并生成对应的.h文件</li>
 <li>安装使用:<a href="https://www.jianshu.com/p/1e3fe0a8c048">https://www.jianshu.com/p/1e3fe0a8c048</a></li>
 <li>主要命令行:class-dump -H [.app文件的路径] -o [输出文件夹路径]</li>
-<li>局限:没有加密的App。APPStore上的App就需要配合Dumpdecrypted破壳了</li>
+<li>局限:1.没有加密的App。APPStore上的App就需要配合Dumpdecrypted破壳了 2.只能在作用于纯OC项目,对于Swift无能为力</li>
 </ul>
 <h4 id="2theos"><a href="#2-Theos" class="headerlink" title="2.Theos"></a>2.Theos</h4><ul>
 <li><p>作用:越狱工具开发包(开发工具)</p>
@@ -295,6 +295,10 @@
 <li>教程:<a href="http://www.freebuf.com/column/157939.html">http://www.freebuf.com/column/157939.html</a></li>
 <li>主要操作:空格键 、F5等</li>
 <li>难点:汇编</li>
+</ul>
+<h4 id="5非越狱开发monkeydey"><a href="#5-非越狱开发-MonkeyDey" class="headerlink" title="5.非越狱开发(MonkeyDey)"></a>5.非越狱开发(MonkeyDey)</h4><ul>
+<li>作用:非越狱开发</li>
+<li>教程:<a href="http://bbs.iosre.com/t/topic/8696">http://bbs.iosre.com/t/topic/8696</a></li>
 </ul>
 <h3 id="ios工具集"><a href="#iOS工具集" class="headerlink" title="iOS工具集"></a>iOS工具集</h3><h4 id="1cydia-substrate"><a href="#1-Cydia-Substrate" class="headerlink" title="1.Cydia Substrate"></a>1.Cydia Substrate</h4><ul>
 <li>作用:绝大部分tweak正常工作的基础，它由MobileHooker、MobileLoade和Safe mode 组成。 cydia商店可直接下载</li>
